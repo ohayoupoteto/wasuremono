@@ -1,0 +1,28 @@
+
+<div id="losts">
+
+<% @losts.each do |lost|%>
+    <div id="lost">
+       名前：<%=link_to(lost.name,"/losts/#{lost.id}")%>
+       <br>
+       カテゴリー：<%=lost.category%>
+       <br>
+       詳細：<%=lost.detail%>
+       <br>
+       教室：<%=lost.lesson.classroom.name%>
+       <br>
+       授業：<%=lost.lesson.name%>
+       <br><br>
+    </div>
+<%end%>
+</div>
+<div>
+<%=link_to("忘れ物追加","/losts/new")%>
+</div>
+<br>
+<div>
+<%=link_to("教室一覧","/classrooms")%>
+</div>
+<div>
+<%=link_to("授業一覧","/lessons")%>
+</div>

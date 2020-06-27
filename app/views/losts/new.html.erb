@@ -1,0 +1,10 @@
+<h2>忘れ物追加</h2>
+<% category=["貴重品","傘","文房具","衣類","スマートフォン"]%>
+
+<%=form_for @lost do |form|%>
+  名前：<%=form.text_field :name%>
+  カテゴリー：<%=form.select :category,category%>
+  詳細：<%= form.text_field :detail%>
+  授業：<%= form.select :lesson_id, @lesson_array %>
+  <%=form.submit("追加する")%>
+<%end%>
