@@ -1,0 +1,13 @@
+<h2>教室一覧</h2>
+<div id="classrooms">
+<% @classrooms.each do |classroom|%>
+    <div id="lost">
+       名前：<%=classroom.name%> 
+    </div><br>
+<%end%>
+</div>
+
+<%=link_to("新規作成","/classrooms/new")%>
+
+<%=link_to("<<TOPページへ","/")%>
+

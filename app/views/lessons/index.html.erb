@@ -1,0 +1,15 @@
+<h2>授業一覧</h2>
+<div id="lessons">
+<% @lessons.each do |lesson|%>
+    <div id="lost">
+       名前：<%=lesson.name%> <br>
+       教師：<%=lesson.teacher%><br>
+       教室：<%=lesson.classroom.name%>
+    </div><br><br>
+<%end%>
+</div>
+
+<%=link_to("新規作成","/lessons/new")%>
+
+<%=link_to("<<TOPページへ","/")%>
+
