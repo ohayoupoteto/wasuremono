@@ -8,5 +8,6 @@
 教室：<%=@lost.lesson.classroom.name%>
 <br>
 授業：<%=@lost.lesson.name%>
-
-<%=link_to("<<TOPページへ","/")%>
+<div>
+<%=link_to("削除する","/admin/losts/#{@lost.id}",method: :delete)%>
+</div>

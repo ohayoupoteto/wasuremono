@@ -5,11 +5,13 @@
        名前：<%=lesson.name%> <br>
        教師：<%=lesson.teacher%><br>
        教室：<%=lesson.classroom.name%>
-    </div><br><br>
+    </div>
+    <%=link_to("削除する","/admin/lessons/#{lesson.id}",method: :delete)%>
+    <br><br>
 <%end%>
 </div>
 
-<%=link_to("新規作成","/lessons/new")%>
+<%=link_to("新規作成","/admin/lessons/new")%>
 
-<%=link_to("<<TOPページへ","/")%>
+
 

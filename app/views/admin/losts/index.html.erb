@@ -1,9 +1,12 @@
 
+<%unless current_user%>
+<%=render("shared/login-form")%>
+<%else%>
 <div id="losts">
 
 <% @losts.each do |lost|%>
     <div id="lost">
-       名前：<%=link_to(lost.name,"/losts/#{lost.id}")%>
+       名前：<%=link_to(lost.name,"/admin/losts/#{lost.id}")%>
        <br>
        カテゴリー：<%=lost.category%>
        <br>
@@ -12,17 +15,20 @@
        教室：<%=lost.lesson.classroom.name%>
        <br>
        授業：<%=lost.lesson.name%>
-       <br><br>
+       <br>
+       <br>
     </div>
 <%end%>
 </div>
 <div>
-<%=link_to("忘れ物追加","/losts/new")%>
+<%=link_to("忘れ物追加","/admin/losts/new")%>
 </div>
 <br>
 <div>
-<%=link_to("教室一覧","/classrooms")%>
+<%=link_to("教室一覧","/admin/classrooms")%>
 </div>
 <div>
-<%=link_to("授業一覧","/lessons")%>
+<%=link_to("授業一覧","/admin/lessons")%>
 </div>
+<%end%>
+
