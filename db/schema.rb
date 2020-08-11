@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_26_131034) do
+ActiveRecord::Schema.define(version: 2020_08_06_125321) do
 
   create_table "chats", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -64,11 +64,11 @@ ActiveRecord::Schema.define(version: 2020_06_26_131034) do
     t.string "name", null: false
     t.string "faculty", null: false
     t.string "grade", null: false
-    t.integer "lesson_id", null: false
-    t.boolean "admin", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["lesson_id"], name: "index_users_on_lesson_id"
+    t.string "password_digest"
+    t.boolean "admin"
+    t.string "student_id"
   end
 
 end

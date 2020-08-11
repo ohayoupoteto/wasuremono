@@ -1,4 +1,4 @@
-class ClassroomsController < ApplicationController
+class Admin::ClassroomsController < Admin::Base
     def index
         @classrooms=Classroom.all
     end
@@ -15,7 +15,7 @@ class ClassroomsController < ApplicationController
         @classroom=Classroom.new(classroom_params)
         if @classroom.save
             flash[:notice]="教室を追加しました"
-            redirect_to("/classrooms")
+            redirect_to("/admin/classrooms")
         else
             flash[:notice]="追加できませんでした。"
             render("classroom#new")
@@ -31,6 +31,13 @@ class ClassroomsController < ApplicationController
     end
 
     def destroy
+        @classroom=Classroom.find(params[:id])
+       if @classroom.destroy
+        flash[:notice]="教室を削除しました"
+       else
+        flash[:notice]="教室を削除できませんでした"
+       end
+       redirect_to("/admin/classrooms")
 
     end
     

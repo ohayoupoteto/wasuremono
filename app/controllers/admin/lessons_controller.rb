@@ -1,4 +1,4 @@
-class LessonsController < ApplicationController
+class Admin::LessonsController < Admin::Base
     def index
         @lessons=Lesson.all
     end
@@ -23,7 +23,7 @@ class LessonsController < ApplicationController
         @lesson=Lesson.new(lesson_params)
         if @lesson.save
             flash[:notice]="授業を追加しました"
-            redirect_to("/lessons")
+            redirect_to("/admin/lessons")
         else
             flash[:notice]="追加できませんでした。"
             render("lesson#new")
@@ -31,7 +31,7 @@ class LessonsController < ApplicationController
     end
 
     def edit
-
+        @lesson=Lesson.find(params[:lesson])
     end
 
     def update
@@ -39,6 +39,13 @@ class LessonsController < ApplicationController
     end
 
     def destroy
+        @lesson=Lesson.find(params[:id])
+       if @lesson.destroy
+        flash[:notice]="授業を削除しました"
+       else
+        flash[:notice]="授業を削除できませんでした"
+       end
+       redirect_to("/admin/lessons")
 
     end
 

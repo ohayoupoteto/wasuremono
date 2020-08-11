@@ -1,0 +1,18 @@
+<h2>教室一覧</h2>
+<div id="classrooms">
+<% @classrooms.each do |classroom|%>
+    <div id="lost">
+       名前：<%=classroom.name%> 
+    </div>
+    <div>
+    <%=link_to("削除する","/admin/classrooms/#{classroom.id}",method: :delete)%>
+    </div>
+    <br>
+    
+<%end%>
+</div>
+
+<%=link_to("新規作成","/admin/classrooms/new")%>
+
+
+

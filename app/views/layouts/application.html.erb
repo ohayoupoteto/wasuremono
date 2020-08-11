@@ -11,6 +11,18 @@
 
   <body>
   <h1>冴えない忘れ物の届けかた</h1>
+  <%if current_user%>
+    <%="#{current_user.name}さん"%>
+    <%=link_to("ログアウト",:session,method: :delete,data:{confirm:"本当にログアウトしますか?"})%>
+  <%end%>
+  <%if flash.alert%>
+    <%=flash.alert%>
+  <%end%>
     <%= yield %>
+    <%if current_user%>
+    <div>
+    <%=link_to("<<TOPページへ","/admin/losts")%>
+    </div>
+    <%end%>
   </body>
 </html>

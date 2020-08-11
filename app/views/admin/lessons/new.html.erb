@@ -1,5 +1,5 @@
 <h2>授業追加</h2>
-<%=form_for @lesson do |form|%>
+<%=form_for @lesson,url:admin_lessons_path do |form|%>
     名前：<%=form.text_field :name%>
     教師：<%=form.text_field :teacher%>
     教室：<%=form.select :classroom_id,@classrooms_array%>
@@ -7,4 +7,3 @@
   <%end%>
 
 
-<%=link_to("<<TOPページへ","/")%>
