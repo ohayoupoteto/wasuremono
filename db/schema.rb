@@ -10,9 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_06_125321) do
+ActiveRecord::Schema.define(version: 2020_06_26_131034) do
 
   create_table "chats", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "sentence", null: false
+    t.boolean "is_solved", null: false
+    t.boolean "isAdmin", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,11 +68,11 @@ ActiveRecord::Schema.define(version: 2020_08_06_125321) do
     t.string "name", null: false
     t.string "faculty", null: false
     t.string "grade", null: false
+    t.boolean "admin", null: false
+    t.string "password_digest", null: false
+    t.string "student_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
-    t.boolean "admin"
-    t.string "student_id"
   end
 
 end

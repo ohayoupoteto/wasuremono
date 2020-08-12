@@ -1,10 +1,10 @@
 class ChatsController < ApplicationController
     def index
-       
+        @chats=Chat.where(user_id:current_user.id)
     end
 
     def show
-
+       
     end
 
     def new

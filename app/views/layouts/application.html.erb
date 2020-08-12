@@ -15,9 +15,11 @@
     <%="#{current_user.name}さん"%>
     <%=link_to("ログアウト",:session,method: :delete,data:{confirm:"本当にログアウトしますか?"})%>
   <%end%>
+  <div>
   <%if flash.alert%>
     <%=flash.alert%>
   <%end%>
+  </div>
     <%= yield %>
     <%if current_user%>
     <div>
