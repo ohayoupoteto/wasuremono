@@ -22,9 +22,15 @@
   </div>
     <%= yield %>
     <%if current_user%>
+    <%if current_user.admin%>
     <div>
     <%=link_to("<<TOPページへ","/admin/losts")%>
     </div>
+    <%else%>
+    <div>
+    <%=link_to("<<TOPページへ","/chats")%>
+    </div>
+    <%end%>
     <%end%>
   </body>
 </html>
