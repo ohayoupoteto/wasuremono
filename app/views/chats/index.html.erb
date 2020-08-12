@@ -1,0 +1,8 @@
+<h2>チャット一覧</h2>
+<div id="chats">
+<% @chats.each do |chat|%>
+    <div id="chat">
+    生徒名：<%=chat.user.name%> <br>
+    最新メッセージ：<%=chat.sentence%><br>
+    </div>
+    <%end%>

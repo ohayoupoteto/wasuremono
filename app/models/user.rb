@@ -4,4 +4,5 @@ class User < ApplicationRecord
     has_many :losts,through: :favorites
     has_many :take_lessons,dependent: :destroy
     has_many :lessons,through: :take_lessons
+    has_many :chats
 end

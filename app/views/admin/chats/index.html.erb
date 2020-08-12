@@ -1,0 +1,8 @@
+<h2>トークルーム一覧</h2>
+
+<div id="chats">
+<% @user_name.each do |user|%>
+    <div id="chat">
+    生徒名：<%=link_to("#{user}","/admin/chats/#{User.find_by(name:user).id}")%> <br>
+    </div>
+<%end%>

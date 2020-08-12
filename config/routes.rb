@@ -12,5 +12,13 @@ Rails.application.routes.draw do
     resources :lessons
     resources :users
   end
+  resources :losts
+  resources :chats
+  
+  resources :classrooms 
+
+  resources :lessons
+  resources :users
+
   resource :session ,only: [:create, :destroy]
 end
