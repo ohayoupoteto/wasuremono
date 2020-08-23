@@ -15,6 +15,7 @@ class Admin::ChatsController < Admin::Base
         @chats=Chat.where(user_id:params[:id])
         @new_chat=Chat.new(is_solved:false,isAdmin:true)
         @user_id=params[:id]
+        @chat_user_name=Chat.where(user_id:params[:id]).first.user.name #チャットしている生徒の名前を取得
     end
 
     def new

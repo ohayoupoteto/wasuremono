@@ -5,4 +5,5 @@ class User < ApplicationRecord
     has_many :take_lessons,dependent: :destroy
     has_many :lessons,through: :take_lessons
     has_many :chats
+    has_many :matters,dependent: :destroy
 end

@@ -1,0 +1,6 @@
+<h2>どんな忘れ物をしましたか?</h2>
+<%=form_for @matter,url:"q1_after" do |form|%>
+授業：<%=form.select :lesson,@lessons_array%>
+カテゴリー：<%=form.select :category,@categorys_array%>
+<%=form.submit("次に進む")%>
+<%end%>
