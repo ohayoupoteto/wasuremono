@@ -1,0 +1,12 @@
+<%=@users.each do |user|%>
+    <table>
+    <tr>
+    <th>ユーザーID</th>
+    <td><%=user.student_id%></td>
+    </tr>
+    <tr>
+    <th>氏名</th>
+    <td><%=link_to("#{user.name}","/admin/users/#{user.id}")%></td>
+    </tr>
+    </table>
+<%end%>

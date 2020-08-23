@@ -1,4 +1,5 @@
-<h2>チャット</h2>
+<h2><%="#{@chat_user_name}さんとのチャット"%></h2>
+
 <div id="chats">
 <% @chats.each do |chat|%>
     <%if chat.isAdmin%>

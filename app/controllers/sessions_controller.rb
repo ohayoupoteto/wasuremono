@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
             if current_user.admin?
                 redirect_to("/admin/losts")
             else
-                redirect_to("/chats")
+                redirect_to("/q1")
             end
         else
             flash.alert="ログインに失敗しました"
