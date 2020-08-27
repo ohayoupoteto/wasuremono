@@ -1,27 +1,46 @@
 class MattersController < ApplicationController
     def q1
         @matter=Matter.new(user_id:current_user.id)
-        @classrooms=Classroom.all
-        @classrooms_array=[]#選択用の教室の配列を用意
-        @classrooms.each do |classroom|
-            id=classroom.id
-            name=classroom.name
-            @classrooms_array << [name,id]
-        end
-        @lessons=Lesson.all
+        #@classrooms=Classroom.all
+        #@classrooms_array=[]#選択用の教室の配列を用意
+        #@classrooms.each do |classroom|
+            #id=classroom.id
+            #name=classroom.name
+            #@classrooms_array << [name,id]
+        #end
+        @lessons=current_user.lessons
         @lessons_array=[]
         @lessons.each do |lesson|
-            lesson
+            @lessons_array << lesson.name
         end
+
+        @losts=Lost.all
+        @categorys_array=[]
+        @losts.each do |lost|
+            @categorys_array << lost.category
+        end
+        @categorys_array=@categorys_array.uniq
 
     end
 
     def q1_after
+        @matter=Matter.new(user_id:current_user.id, is_solved:false)
+        @lesson=Lesson.find_by(name:params[:lesson])
+        category=params[:category]
+        if @matter.save! #lesson_idが空の状態
+            redirect_to("/q2/#{@matter.id}/#{@lesson.id}/#{category}")
+        else
+            flash[:notice]="やり直してください"
+            redirect_to("/q1")
+        end
 
     end
 
     
     def q2
+        @matter=Matter.find(params[:id])
+        @losts=Lost.where(lesson_id:params[:lesson_id],category:params[:category])
+
     end
 
     def q2_after
@@ -29,9 +48,21 @@ class MattersController < ApplicationController
     
 
     def q3
+        @matter=Matter.find(params[:id])
+        @lost=Lost.find(params[:lost_id])
+        @matter.lost = @lost
+        @matter.save
     end
 
     def q3_after
+        @matter=Matter.find(params[:id])
+        @matter.assign_attributes(eve:params[:matter][:eve])
+        if @matter.save
+            
+        else
+            flash[:notice]="やり直してください"
+        end
+        redirect_to("/q1")
     end
 
     def matter_params

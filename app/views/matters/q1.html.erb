@@ -1,6 +1,6 @@
 <h2>どんな忘れ物をしましたか?</h2>
-<%=form_for @matter,url:"q1_after" do |form|%>
-授業：<%=form.select :lesson,@lessons_array%>
-カテゴリー：<%=form.select :category,@categorys_array%>
-<%=form.submit("次に進む")%>
-<%end%>
+<%= form_tag('/q1_after', method: :post) do %>
+    授業：<%=select_tag :lesson, options_for_select(@lessons_array)%>
+    カテゴリー：<%=select_tag :category, options_for_select(@categorys_array)%>
+    <%=submit_tag("次に進む")%>
+ <% end %>

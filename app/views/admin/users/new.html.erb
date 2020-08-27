@@ -1,0 +1,40 @@
+<h2>ユーザー追加</h2>
+<%=form_for @user,url:admin_users_path do |form|%>
+    <table>
+    <tr>
+    <th>ユーザーID</th>
+    <td><%=form.text_field :student_id%></td>
+    </tr>
+    <tr>
+    <th>学部</th>
+    <td><%=form.text_field :faculty%></td>
+    </tr>
+    <tr>
+    <th>学年</th>
+    <td><%=form.text_field :grade%></td>
+    </tr>
+    <tr>
+    <th>氏名</th>
+    <td><%=form.text_field :name%></td>
+    </tr>
+    <tr>
+    <th>パスワード</th>
+    <td><%=form.password_field :password%></td>
+    </tr>
+    <tr>
+    <th>パスワード(再確認)</th>
+    <td><%=form.password_field :password_confirmation%></td>
+    </tr>
+    <%=form.submit("追加する")%>
+    </table>
+    <ul style="list-style-type: none">
+    <% #その生徒が取る授業を選択するチェックボックス%>
+    <%=form.collection_check_boxes(:lesson_ids,@lessons, :id, :name) do |lesson|%>
+        <li>
+        <%=lesson.check_box%>
+        <%=lesson.text%>
+        </li>
+    <%end%>
+    
+    </ul>
+<%end%>

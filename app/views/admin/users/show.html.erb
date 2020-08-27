@@ -15,4 +15,14 @@
     <th>氏名</th>
     <td><%=@user.name%></td>
     </tr>
+    <tr>
+    <th>履修科目</th>
+    <td>
+      <ul>
+        <% @lessons.each do |lesson|%>
+            <li><%=lesson.name%></li>
+        <%end%>
+      </ul>
+      </td>
+    </tr>
 </table>

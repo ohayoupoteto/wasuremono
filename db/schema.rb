@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_22_125620) do
+ActiveRecord::Schema.define(version: 2020_08_22_123215) do
 
   create_table "chats", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -57,12 +57,12 @@ ActiveRecord::Schema.define(version: 2020_08_22_125620) do
 
   create_table "matters", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "lesson"
-    t.string "category"
+    t.integer "lost_id"
     t.string "eve"
     t.boolean "is_solved"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lost_id"], name: "index_matters_on_lost_id"
     t.index ["user_id"], name: "index_matters_on_user_id"
   end
 
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2020_08_22_125620) do
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "faculty", null: false
-    t.string "grade", null: false
+    t.integer "grade", null: false
     t.boolean "admin", null: false
     t.string "password_digest", null: false
     t.string "student_id", null: false

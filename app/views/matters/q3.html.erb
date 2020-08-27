@@ -1,0 +1,5 @@
+<h2>忘れ物の特徴・または本人確認のための証拠を書いてください</h2>
+<%=form_for @matter,url:"/q3_after/#{@matter.id}" do |form|%>
+テキスト：<%=form.text_area :eve%>
+<%=form.submit("申請する")%>
+<%end%>
