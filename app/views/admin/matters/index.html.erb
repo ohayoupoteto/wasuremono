@@ -1,0 +1,13 @@
+<h2>申請一覧</h2>
+<div id="matters">
+<% @matters.each do |matter|%>
+    <div id="matter">
+       生徒名：<%=matter.user.name%> <br>
+       授業：<%=matter.lost.lesson.name%><br>
+       忘れ物：<%=link_to("#{matter.lost.category}","/admin/losts/#{matter.lost.id}")%>
+       追加時刻：<%=matter.created_at%><br>
+       メッセージ：<%=matter.eve%>
+    </div>
+    <%=link_to("チャットを開始する","/admin/chats/start/#{matter.user.id}", method: :post)%>
+    <br>
+<%end%>

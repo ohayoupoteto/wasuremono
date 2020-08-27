@@ -1,4 +1,5 @@
-<%=@users.each do |user|%>
+<% @users.each do |user|%>
+    <div>
     <table>
     <tr>
     <th>ユーザーID</th>
@@ -9,4 +10,10 @@
     <td><%=link_to("#{user.name}","/admin/users/#{user.id}")%></td>
     </tr>
     </table>
+    <%=link_to("編集する","/admin/users/#{user.id}/edit")%>
+    <%=link_to("削除する","/admin/users/#{user.id}",method: :delete)%>
+    </div>
 <%end%>
+<div>
+<%=link_to("生徒追加","/admin/users/new")%>
+</div>

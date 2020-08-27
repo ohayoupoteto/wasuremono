@@ -1,0 +1,36 @@
+<h2>ユーザー編集</h2>
+<%=form_for @user ,url:admin_user_path(@user) do |form|%>
+    <table>
+    <tr>
+    <th>ユーザーID</th>
+    <td><%=form.text_field :student_id%></td>
+    </tr>
+    <tr>
+    <th>学部</th>
+    <td><%=form.text_field :faculty%></td>
+    </tr>
+    <tr>
+    <th>学年</th>
+    <td><%=form.text_field :grade%></td>
+    </tr>
+    <tr>
+    <th>氏名</th>
+    <td><%=form.text_field :name%></td>
+    </tr>
+    <tr>
+    <th>パスワード</th>
+    <td><%=form.password_field :password%></td>
+    </tr>
+    <tr>
+    <th>パスワード(再確認)</th>
+    <td><%=form.password_field :password_confirmation%></td>
+    </tr>
+    <%=form.submit("これに編集する")%>
+    </table>
+    <%=form.collection_check_boxes(:lesson_ids,@lessons, :id, :name) do |lesson|%>
+        <li>
+        <%=lesson.check_box%>
+        <%=lesson.text%>
+        </li>
+    <%end%>
+<%end%>

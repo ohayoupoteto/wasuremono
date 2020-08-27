@@ -1,4 +1,15 @@
 class Admin::ChatsController < Admin::Base
+    def start
+        @chats=Chat.new(user_id:params[:user_id], isAdmin:true, is_solved:false, 
+        sentence:"トークルームが開設されました。こんにちわ#{User.find(params[:user_id]).name}さん。")
+        if @chats.save!
+
+        else
+
+        end
+        redirect_to("/admin/chats")
+    end
+
     def index
         @users=User.where(admin:false)
         @user_name=[]

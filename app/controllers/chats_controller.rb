@@ -1,7 +1,10 @@
 class ChatsController < ApplicationController
+
+    
+
     def index
         @chats=Chat.where(user_id:current_user.id)
-        @new_chat=Chat.new(is_solved:false,isAdmin:false)]
+        @new_chat=Chat.new(is_solved:false,isAdmin:false)
     end
 
     def show
