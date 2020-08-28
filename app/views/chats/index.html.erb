@@ -1,25 +1,23 @@
-<h2>チャット</h2>
+<h2>管理人とのチャット</h2>
 <div id="chats">
 <% @chats.each do |chat|%>
     <%if chat.isAdmin%>
     <div id="chat">
-        #生徒名：<%=chat.user.name%>
-        管理者<br>
-        最新メッセージ：<%=chat.sentence%><br>
+        管理者：<br>
+        メッセージ：<%=chat.sentence%><br>
       </div>
     <%else%>
     <div id="chat">
     <p style="text-align:right;">
-        #生徒名：<%=chat.user.name%> <br>
-        最新メッセージ：<%=chat.sentence%><br></p>
+        自分：
+        メッセージ：<%=chat.sentence%><br></p>
       </div>
     <%end%>
     <%end%>
+</div>
 <h3>チャット送信</h3>
-<%=form_for @new_chat do |form|%>
-    本文：<%=form.text_field :sentence%>
-    <%=form.hidden_field :isAdmin,:value=> false%>
-    <%=form.hidden_field :is_solved, :value=> false%>
-    <%=form.hidden_field :user_id, :value=>current_user.id%>
-    <%=form.submit("チャットを送信する")%>
-  <%end%>
+<form>
+  <label>送りたい内容を入力してね</label><br>
+  <input type="text" data-behavior="room_speaker_student">
+  <input id="user_id_student" type="hidden" value= "<%=current_user.id%>" >
+</form>
