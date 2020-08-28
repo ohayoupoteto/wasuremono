@@ -3,23 +3,22 @@
 <div id="chats">
 <% @chats.each do |chat|%>
     <%if chat.isAdmin%>
-    <div id="chat">
+    <div id="chat_admin">
         <p style="text-align:right;">
-        最新メッセージ：<%=chat.sentence%><br>
+        メッセージ：<%=chat.sentence%><br>
         </p>
       </div>
     <%else%>
-    <div id="chat">
+    <div id="chat_student">
         生徒名：<%=chat.user.name%> <br>
-        最新メッセージ：<%=chat.sentence%><br>
+        メッセージ：<%=chat.sentence%><br>
       </div>
     <%end%>
     <%end%>
+</div>   
 <h3>チャット送信</h3>
-<%=form_for @new_chat,url:admin_chats_path do |form|%>
-    本文：<%=form.text_field :sentence%>
-    <%=form.hidden_field :isAdmin,:value=> true%>
-    <%=form.hidden_field :is_solved, :value=> false%>
-    <%=form.hidden_field :user_id, :value=>@user_id%>
-    <%=form.submit("送信する")%>
-  <%end%>
+<form>
+  <label>送りたい内容を入力してね</label><br>
+  <input type="text" data-behavior="room_speaker_admin">
+  <input id="user_id_admin" type="hidden" value= "<%=@user_id%>" >
+</form>

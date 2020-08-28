@@ -31,5 +31,5 @@ Rails.application.routes.draw do
 
   resource :session ,only: [:create, :destroy]
 
-  mount  ActionCable.server => '/cable'
+  mount ActionCable.server => '/cable'
 end
