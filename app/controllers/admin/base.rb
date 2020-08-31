@@ -3,7 +3,7 @@ class Admin::Base < ApplicationController
 
     private def admin_login_required
         unless current_user&.admin
-            raise Fofbidden 
+            raise Forbidden 
         end
     end
 end

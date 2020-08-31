@@ -13,3 +13,75 @@
  *= require_tree .
  *= require_self
  */
+
+ body{
+     background-color:#FFF4E1!important;
+     color:#707070!important;
+     background-image:url("/assets/wasuremono_top2.png");
+     background-size:cover;
+     background-repeat: no-repeat
+ }
+ .table{
+     background: rgba(255,255,255,.3)
+ }
+ 
+ 
+ /************************************
+** 生徒用のフォーム
+************************************/
+ .forms_student{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform : translate(-50%,-50%);
+    transform : translate(-50%,-50%);
+    width: 40%;
+    text-align: center;
+    box-shadow: 5px 10px 20px rgba(0,0,0,0.18);
+    padding: 5% 5% 3% 5%;
+    border-radius:8%;
+    border:2px solid #fcd69e;
+ }
+
+ .form_student{
+    margin-bottom: 20px;
+	padding-right: 1em;
+	cursor: pointer;
+	text-overflow: ellipsis;
+	outline: none;
+    color:#707070!important;
+    /*box-shadow: 0 2px 2px rgba(0,0,0,.02);*/
+ }
+
+.form_student.form_student2 {
+	position: relative;
+    border-radius: 50px;
+    border: 1px solid #eeeeee;
+}
+
+
+ /*
+ .form_student.form_student2::before {
+	position: absolute;
+	top: 0.8em;
+	right: 0.8em;
+	width: 0;
+	height: 0;
+	padding: 0;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #fcd69e;
+	pointer-events: none;
+}
+ .form_student option{
+     font-size:.5em;
+ }
+ */
+
+
+ .btn-orange{
+    background-color:#fcd69e!important;
+    border:initial!important;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.23);
+ }

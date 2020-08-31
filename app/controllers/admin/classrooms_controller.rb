@@ -1,4 +1,5 @@
 class Admin::ClassroomsController < Admin::Base
+    
     def index
         @classrooms=Classroom.all
     end
