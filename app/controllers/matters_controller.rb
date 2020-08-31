@@ -1,4 +1,5 @@
 class MattersController < ApplicationController
+    before_action :login_required
     def q1
         @matter=Matter.new(user_id:current_user.id)
         #@classrooms=Classroom.all
@@ -9,13 +10,12 @@ class MattersController < ApplicationController
             #@classrooms_array << [name,id]
         #end
         @lessons=current_user.lessons
-        @lessons_array=[]
+        @lessons_array=["忘れ物をした授業を選択"]
         @lessons.each do |lesson|
             @lessons_array << lesson.name
         end
-
         @losts=Lost.all
-        @categorys_array=[]
+        @categorys_array=["忘れ物の種類を選択"]
         @losts.each do |lost|
             @categorys_array << lost.category
         end
@@ -51,13 +51,13 @@ class MattersController < ApplicationController
         @matter=Matter.find(params[:id])
         @lost=Lost.find(params[:lost_id])
         @matter.lost = @lost
-        @matter.save
+        @matter.save!
     end
 
     def q3_after
         @matter=Matter.find(params[:id])
-        @matter.assign_attributes(eve:params[:matter][:eve])
-        if @matter.save
+        @matter.assign_attributes(eve: params[:matter][:eve])
+        if @matter.save!
             
         else
             flash[:notice]="やり直してください"

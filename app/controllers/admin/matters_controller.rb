@@ -1,4 +1,5 @@
 class Admin::MattersController < Admin::Base
+    
     def index
         @matters=Matter.all
     end

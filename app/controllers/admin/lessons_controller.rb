@@ -1,4 +1,5 @@
 class Admin::LessonsController < Admin::Base
+
     def index
         @lessons=Lesson.all
     end
