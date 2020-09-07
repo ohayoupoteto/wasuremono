@@ -1,5 +1,8 @@
-<h2>忘れ物の特徴・または本人確認のための証拠を書いてください</h2>
+<h2 class="fade-in2">本人確認</h2>
+<div class="forms_student fade-in">
+<div class="form_student_message">忘れ物の特徴を教えてください</div>
 <%=form_for @matter,url:"/q3_after/#{@matter.id}" do |form|%>
-テキスト：<%=form.text_area :eve%>
-<%=form.submit("申請する")%>
+<%=form.text_area :eve,class:"form-control from_big"%>
+<%=form.submit("申請する",id:"matter_make" ,class:"btn btn-info btn-orange")%>
 <%end%>
+</div>

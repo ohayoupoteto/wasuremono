@@ -1,19 +1,30 @@
+<h2 class="fade-in2">このような忘れ物が見つかっています</h2>
 <div id="losts">
-
+<table class="table table-bordered fade-in3">
+  <thead>
+    <tr>
+      <th scope="col">イメージ</th>
+      <th scope="col">名前</th>
+      <th scope="col">詳細</th>
+    </tr>
+    </thead>
+    <tbody>
 <% @losts.each do |lost|%>
-    <div id="lost">
-       名前：<%=link_to(lost.name,"/losts/#{lost.id}")%>
-       <br>
-       カテゴリー：<%=lost.category%>
-       <br>
-       詳細：<%=lost.detail%>
-       <br>
-       教室：<%=lost.lesson.classroom.name%>
-       <br>
-       授業：<%=lost.lesson.name%>
-       <br>
-       <br>
-    </div>
-    <%=link_to("この忘れ物に対して申請する","/q3/#{@matter.id}/#{lost.id}")%>
+    <tr>
+    <td scope="row"><img src="#" alt="ここに画像を挿入"></td>
+      <th scope="row"><%=link_to(lost.name,"/admin/losts/#{lost.id}")%></th>
+      <td scope="row">
+      <ul>
+      <li><%=lost.category%></li>
+      <li><%=lost.lesson.classroom.name%></li>
+      <li><%=lost.lesson.name%></li>
+      <li><%=lost.detail%></li>
+      </ul>
+      </td>
+      <td><%=link_to("この忘れ物に対して申請する","/q3/#{@matter.id}/#{lost.id}")%></td>
+    </tr>
+    
 <%end%>
-</div>
+</tbody> 
+    </table>
+    </div>

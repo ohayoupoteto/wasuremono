@@ -9,33 +9,72 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
   </head>
 
   <body>
-  <div class="container back">
-  <h1>冴えない忘れ物の届けかた</h1>
+  <header>
+  <h1>
   <%if current_user%>
-    <%="#{current_user.name}さん"%>
-    <%=link_to("ログアウト",:session,method: :delete,data:{confirm:"本当にログアウトしますか?"})%>
-  <%end%>
-  <div>
-  <%if flash.alert%>
-    <%=flash.alert%>
-  <%end%>
-  </div>
-    <%= yield %>
-    <%if current_user%>
     <%if current_user.admin%>
-    <div>
-    <%=link_to("<<TOPページへ","/admin/losts")%>
-    </div>
+      <%= link_to "/admin/losts", target: "_blank" do %>
+        <%= image_tag "/assets/wasuremono_title.png" %>
+      <% end %>
     <%else%>
-    <div>
-    <%=link_to("<<TOPページへ","/chats")%>
+      <%= link_to "/q1", target: "_blank" do %>
+        <%= image_tag "/assets/wasuremono_title.png" %>
+      <% end %>
+    <%end%>
+  <%else%>
+    <%= link_to "/", target: "_blank" do %>
+        <%= image_tag "/assets/wasuremono_title.png" %>
+    <% end %>
+  <%end%>
+  </h1>
+  <nav class="pc-nav">
+  <div class="current_user">
+      <%if current_user%>
+        <%="#{current_user.name}さん"%>
+        <%=link_to("ログアウト",:session,method: :delete,data:{confirm:"本当にログアウトしますか?"})%>
     </div>
-    <%end%>
-    <%end%>
-
+      <%end%>
+  <%if current_user && current_user.admin%>
+      <button type="button" class="btn btn-sm">
+            <%=link_to("忘れ物追加","/admin/losts/new")%>
+            </button>
+            <div class="dropdown">
+              <button type="button" class="btn dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              各種一覧</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <%=link_to("忘れ物一覧","/admin/losts",class:"dropdown-item")%>
+                <%=link_to("教室一覧","/admin/classrooms",class:"dropdown-item")%>
+                <%=link_to("授業一覧","/admin/lessons",class:"dropdown-item")%>
+                <%=link_to("生徒一覧","/admin/users",class:"dropdown-item")%>
+              </div>
+              </div>
+        <button type="button" class="btn btn-sm">
+          <%=link_to("申請を見る","/admin/matters")%>
+        </button>
+        <button type="button" class="btn btn-sm">
+          <%=link_to("チャット","/admin/chats")%>
+        </button> 
+    </nav>
+  <%end%>
+  </header>
+  <div class="container back">
+  <%if flash.alert%>
+  <div class="alert alert-danger" role="alert">
+    <%=flash.alert%>
+    </div>
+  <%end%>
+  <%if flash.notice%>
+  <div class="alert alert-primary" role="alert">
+    <%=flash.notice%>
+    </div>
+  <%end%>
+  <div class="yield">
+    <%= yield %>
+  </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

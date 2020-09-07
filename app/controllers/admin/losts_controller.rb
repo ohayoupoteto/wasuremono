@@ -26,7 +26,7 @@ class Admin::LostsController < Admin::Base
             flash[:notice]="授業を追加しました"
             redirect_to("/admin/losts")
         else
-            flash[:notice]="追加できませんでした。"
+            flash[:alert]="追加できませんでした。"
             render("/admin/lost/new")
         end
     end
@@ -44,7 +44,7 @@ class Admin::LostsController < Admin::Base
        if @lost.destroy
         flash[:notice]="忘れ物を削除しました"
        else
-        flash[:notice]="忘れ物を削除できませんでした"
+        flash[:alert]="忘れ物を削除できませんでした"
        end
        redirect_to("/admin/losts")
 

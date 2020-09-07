@@ -18,7 +18,7 @@ class Admin::ClassroomsController < Admin::Base
             flash[:notice]="教室を追加しました"
             redirect_to("/admin/classrooms")
         else
-            flash[:notice]="追加できませんでした。"
+            flash[:alert]="追加できませんでした。"
             render("classroom#new")
         end
     end
@@ -36,7 +36,7 @@ class Admin::ClassroomsController < Admin::Base
        if @classroom.destroy
         flash[:notice]="教室を削除しました"
        else
-        flash[:notice]="教室を削除できませんでした"
+        flash[:alert]="教室を削除できませんでした"
        end
        redirect_to("/admin/classrooms")
 
