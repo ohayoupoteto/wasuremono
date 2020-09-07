@@ -36,7 +36,7 @@ class Admin::UsersController < Admin::Base
             flash[:notice]="生徒を追加しました"
             redirect_to("/admin/users")
         else
-            flash[:notice]="生徒を追加できませんでした"
+            flash[:alert]="生徒を追加できませんでした"
             redirect_to("/admin/users/new")
         end
 

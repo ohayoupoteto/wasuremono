@@ -56,13 +56,13 @@ class MattersController < ApplicationController
 
     def q3_after
         @matter=Matter.find(params[:id])
-        @matter.assign_attributes(eve: params[:matter][:eve])
+        @matter.eve=params[:matter][:eve]
         if @matter.save!
-            
+            flash[:notice]="申請を完了しました。"
         else
-            flash[:notice]="やり直してください"
+            flash[:alert]="やり直してください"
         end
-        redirect_to("/q1")
+        #redirect_to("/q1")
     end
 
     def matter_params

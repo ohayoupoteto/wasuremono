@@ -9,8 +9,12 @@ App.room = App.cable.subscriptions.create "RoomChannel",
 
   received: (data) ->
     if data['isAdmin'] is true
+      #if data['currentAdmin'] is false
+        #alert "管理人からのメッセージ#{data['message']}"
       word="<p style='text-align:right;'>メッセージ:#{data['message']}<br></p>"
     else
+      #if data['currentAdmin'] is true
+        #alert "生徒からのメッセージ#{data['message']}"
       word="<p style='text-align:left;'>メッセージ:#{data['message']}<br></p>"
     $('#chats').append(word)
     #alert data['message']

@@ -20,7 +20,7 @@ class ChatsController < ApplicationController
         if @chat.save
             flash[:notice]="送信しました"
         else
-            flash[:notice]="送信できませんでした"
+            flash[:alert]="送信できませんでした"
         end
         redirect_to("/chats")
     end

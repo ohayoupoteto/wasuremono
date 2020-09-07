@@ -16,3 +16,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+//ヘッダーの高さ分だけコンテンツを下げる
+    $(document).on ("turbolinks:load", function(){
+    var height=$("header").height();
+    $("body").css("margin-top", height + 50);//10pxだけ余裕をもたせる
+    /*e.preventDefault();*/
+});

@@ -1,5 +1,5 @@
-<h2>どんな忘れ物をしましたか?</h2>
-<div class="forms_student">
+<h2 class="fade-in2">どんな忘れ物をしましたか?</h2>
+<div class="forms_student fade-in">
 <%= form_tag('/q1_after', method: :post) do %>
   <div class="form-group">
     <%=select_tag :lesson, options_for_select(@lessons_array,selected: @lessons_array[0], disabled: @lessons_array[0]),class:"form-control form_student form_student2"%>

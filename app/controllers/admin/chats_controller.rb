@@ -38,7 +38,7 @@ class Admin::ChatsController < Admin::Base
         if @chat.save
             flash[:notice]="送信しました"
         else
-            flash[:notice]="送信できませんでした"
+            flash[:alert]="送信できませんでした"
         end
         redirect_to("/admin/chats/#{params[:chat][:user_id]}")
     end
