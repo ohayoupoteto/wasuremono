@@ -84,6 +84,23 @@
      opacity:.6;
      top:-20px;
  }
+   /************************************
+** トップページ
+************************************/
+#top{
+    display:flex;
+}
+#top-image{
+     max-width:450px;
+     opacity:.8;
+ }
+.top-sentence{
+    text-align:center;
+}
+.top-sentence p{
+    font-size:.9em
+}
+
   /************************************
 ** アラートボックス
 ************************************/
@@ -168,7 +185,19 @@ header .btn {
     background-color:#fcd69e!important;
     border:initial!important;
     box-shadow: 0 2px 2px rgba(0,0,0,0.23);
-    font-weight: bold!important;
+    font-weight: 900!important;
+    
+ }
+ .go-to-login .btn{
+    background-color:rgb(244,165,138);
+    margin-left:10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0,0,0,.2), 0 2px 3px -2px rgba(0,0,0,.15);
+ }
+ .go-to-login .btn a{
+    text-decoration: none;
+    color:#fff!important;
+    font-weight: 900;
  }
 /************************************
 ** アニメーション

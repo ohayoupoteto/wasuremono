@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root :to => 'sessions#top'
-  get "top" => "sessions/top"
+  get "login"=> "sessions#login"
   
   get "q1" => "matters#q1"
   post "q1_after" => "matters#q1_after"
