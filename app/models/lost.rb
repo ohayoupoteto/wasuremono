@@ -7,8 +7,8 @@ class Lost < ApplicationRecord
     has_one_attached :lost_picture
     attribute :new_lost_picture
 
-    validates :name, presence: true ,uniqueness: true ,length: {minimum:1, maximum: 20 ,allow_blank: true}
-    validates :detail, presence: true,uniqueness: { case_sensitive: false} ,length: {minimum:1, maximum: 100 ,allow_blank: true}
+    validates :name, presence: true ,length: {minimum:1, maximum: 20 ,allow_blank: true}
+    validates :detail, presence: true,length: {minimum:1, maximum: 100 ,allow_blank: true}
     validates :category, length: {minimum:1, maximum: 10 ,allow_blank: true}
     before_save do
         if new_lost_picture
