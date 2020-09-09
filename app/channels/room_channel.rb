@@ -10,12 +10,12 @@ class RoomChannel < ApplicationCable::Channel
 
   def speak_admin(data)
     Chat.create!(sentence: data['message'], isAdmin: true, is_solved: false, user_id: data['user_id'].to_i)
-    ActionCable.server.broadcast 'room_channel', message: data['message'], isAdmin: true
+    ActionCable.server.broadcast 'room_channel', message: data['message'], isAdmin: true, currentAdmin: data['currentAdmin']
   end
 
   def speak_student(data)
     Chat.create!(sentence: data['message'], isAdmin: false, is_solved: false, user_id: data['user_id'].to_i)
-    ActionCable.server.broadcast 'room_channel', message: data['message'], isAdmin: false
+    ActionCable.server.broadcast 'room_channel', message: data['message'], isAdmin: false, currentAdmin: data['currentAdmin']
   end
   private def current_user
     if session[:user_id]

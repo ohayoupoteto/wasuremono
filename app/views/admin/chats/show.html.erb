@@ -20,7 +20,7 @@
 <form>
   <label>送りたい内容を入力してね</label><br>
   <input type="text" data-behavior="room_speaker_admin">
-  <input id="user_id_admin" type="hidden" value= "<%=@user_id%>" >
+  <input id="user_id_admin" type="hidden" value= "<%=@user_id%>" value2= "<%=current_user.admin%>">
 </form>
 
 <button><%=link_to("このチャットを終了する","#")%></button>

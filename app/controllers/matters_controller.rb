@@ -62,7 +62,7 @@ class MattersController < ApplicationController
         else
             flash[:alert]="やり直してください"
         end
-        #redirect_to("/q1")
+        redirect_to("/q1")
     end
 
     def matter_params
