@@ -19,5 +19,5 @@ App.matter = App.cable.subscriptions.create "MatterChannel",
 
 $(document).on 'click', '#matter_make', (event) ->
   App.matter.make()
-  event.preventDefault()
+ 
   
