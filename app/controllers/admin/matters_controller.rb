@@ -7,7 +7,7 @@ class Admin::MattersController < Admin::Base
     end
     
     def index
-        @matters=Matter.all
+        @matters=Matter.all.order(:id).reverse_order
     end
 
     def matter_params

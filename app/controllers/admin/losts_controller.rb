@@ -1,7 +1,7 @@
 class Admin::LostsController < Admin::Base
 
     def index
-        @losts=Lost.all
+        @losts=Lost.all.order(:id).reverse_order
     end
 
     def show
