@@ -16,7 +16,11 @@
 
     
     <tr>
-    <td scope="row"><img src="#" alt="ここに画像を挿入"></td>
+    <td scope="row">
+    <%if lost.lost_picture.attached?%>
+      <%=image_tag lost.lost_picture.variant(resize: "128x128")%>
+      <%end%>
+    </td>
       <th scope="row"><%=link_to(lost.name,"/admin/losts/#{lost.id}")%></th>
       <td scope="row">
       <ul>
