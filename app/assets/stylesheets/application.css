@@ -89,16 +89,29 @@
 ************************************/
 #top{
     display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:210px;
+    /*background-color:#fff;*/
 }
 #top-image{
      max-width:450px;
      opacity:.8;
+     width:78%;
  }
 .top-sentence{
     text-align:center;
+    padding:0!important;
+}
+.top-sentence h2{
+    margin-bottom:50px;
+    font-size:2.6rem;
 }
 .top-sentence p{
-    font-size:.9em
+    
+}
+.go-to-login{
+    margin-top:30px;
 }
 
   /************************************
@@ -199,6 +212,18 @@ header .btn {
     color:#fff!important;
     font-weight: 900;
  }
+ /************************************
+** fontAwesome
+************************************/
+ .mark_check:before{
+    font-family: "Font Awesome 5 Free"!important;
+    content: "\f00c";
+    color: #f8c678;
+    font-weight: 900;
+    font-size:1.25em;
+    padding-right:4px;
+    /*animation: slide2 1.4s infinite;*/
+  }
 /************************************
 ** アニメーション
 ************************************/
@@ -222,7 +247,7 @@ header .btn {
  .fade-in2 {
     opacity: 0;
     animation-name: fadein2;
-    animation-duration: .6s;
+    animation-duration:1s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
  }
@@ -252,3 +277,28 @@ header .btn {
        opacity: 1;
     }
  }
+ .fade-in4 {
+    opacity: 0;
+    animation-name: fadein4;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+ }
+ @keyframes fadein4 {
+    0% {
+       opacity: 0;
+       
+    }
+    100% {
+       opacity: 1;
+    }
+ }
+ .float {
+    -webkit-animation: 2s float ease-in-out infinite;
+    animation: 2s float ease-in-out infinite;
+  }
+ @keyframes float {
+    50% {
+      transform: translateY(-10px);
+    }
+  }
