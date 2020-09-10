@@ -18,11 +18,11 @@
   <h1>
   <%if current_user%>
     <%if current_user.admin%>
-      <%= link_to "/admin/losts", target: "_blank" do %>
+      <%= link_to "/", target: "_blank" do %>
         <%= image_tag "/assets/wasuremono_title.png" %>
       <% end %>
     <%else%>
-      <%= link_to "/q1", target: "_blank" do %>
+      <%= link_to "/", target: "_blank" do %>
         <%= image_tag "/assets/wasuremono_title.png" %>
       <% end %>
     <%end%>

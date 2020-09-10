@@ -1,4 +1,8 @@
+<%if flash.alert||flash.notice%>
+  <div id="top" class="row" style="margin-top:30px;">
+<%else%>
 <div id="top" class="row">
+<%end%>
   <div class="top-sentence fade-in3 col-md-6 col-lg-6">
     <h2>大学の忘れ物管理を楽にー。</h2>
     <p class="mark_check">画像認識を用いて大学の教室内の忘れ物を検知</p>
