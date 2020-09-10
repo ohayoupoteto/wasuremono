@@ -51,7 +51,7 @@ class Admin::LostsController < Admin::Base
     end
 
     def lost_params
-        params.require(:lost).permit(:name,:category,:detail,:lesson_id,:new_lost_picture)
+        params.require(:lost).permit(:name,:category,:detail,:lesson_id,:new_lost_picture,:new_lost_picture)
     end
 
 end

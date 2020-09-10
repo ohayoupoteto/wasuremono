@@ -1,4 +1,7 @@
 <h2>忘れ物詳細</h2>
+<%if @lost.lost_picture.attached?%>
+  イメージ:<%=image_tag @lost.lost_picture.variant(resize: "128x128")%>
+<%end%>
 名前：<%=@lost.name%>
 <br>
 カテゴリー：<%=@lost.category%>

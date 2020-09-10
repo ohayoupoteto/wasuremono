@@ -2,6 +2,8 @@
 <% category=["貴重品","傘","文房具","衣類","スマートフォン"]%>
 
 <%=form_for @lost ,url:admin_losts_path do |form|%>
+  <%=form.label :new_lost_picture%>
+  <%=form.file_field :new_lost_picture %>
   名前：<%=form.text_field :name%>
   カテゴリー：<%=form.select :category,category%>
   詳細：<%= form.text_field :detail%>

@@ -49,6 +49,7 @@
      align-items: center;
      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
      margin-bottom:30px;
+     z-index:999;
  }
  
  header nav div {
@@ -108,7 +109,7 @@
     font-size:2.6rem;
 }
 .top-sentence p{
-    
+    font-size:1.1rem;
 }
 .go-to-login{
     margin-top:30px;
