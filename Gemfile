@@ -69,3 +69,5 @@ gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'execjs'
 gem 'therubyracer'
+
+gem 'aws-sdk-s3', require: false
