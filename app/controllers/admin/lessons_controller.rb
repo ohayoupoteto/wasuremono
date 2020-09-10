@@ -1,7 +1,7 @@
 class Admin::LessonsController < Admin::Base
 
     def index
-        @lessons=Lesson.all
+        @lessons=Lesson.all.order(:id).reverse_order
     end
 
     def show
