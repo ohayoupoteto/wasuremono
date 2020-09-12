@@ -8,16 +8,17 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    $(".alert").text("※せっかくの通知なのでオットセイのモノマネします。 おうおうっおおうっｗｗｗパンッパァンッパァンッ(ヒレを叩く音)おうっおうおおうおｗｗｗ")
-    #$(".alert-box").slideDown().delay(3000).fadeOut()
+    
+    
     if data['isAdmin'] is true
-      
-      alert "管理人からのメッセージ：#{data['message']}"
-      word="<p style='text-align:right;'>メッセージ:#{data['message']}<br></p>"
+      #alert "管理人からのメッセージ：#{data['message']}"
+      word="<div class='balloon6'><div class='faceicon'><img src='' alt='ここに画像'></div><div class='chatting'><div class='says'><p>#{data['message']}</p></div></div></div>"
+      $(".alert-con").text("管理人からのメッセージ：#{data['message']}")
+      $(".alert-box").show();
     else
-     
-      alert "生徒からのメッセージ：#{data['message']}"
-      word="<p style='text-align:left;'>メッセージ:#{data['message']}<br></p>"
+      word="<div class='balloon6'><div class='faceicon'><img src='' alt='ここに画像'></div><div class='chatting'><div class='says'><p>#{data['message']}</p></div></div></div>"
+      $(".alert-con").text("生徒からのメッセージ：#{data['message']}")
+      $(".alert-box").show();
     $('#chats').append(word)
     #alert data['message']
     # Called when there's incoming data on the websocket for this channel

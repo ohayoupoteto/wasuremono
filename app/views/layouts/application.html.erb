@@ -16,21 +16,9 @@
   <body>
   <header>
   <h1>
-  <%if current_user%>
-    <%if current_user.admin%>
-      <%= link_to "/", target: "_blank" do %>
+      <%= link_to "/" do %>
         <%= image_tag "/assets/wasuremono_title.png" %>
-      <% end %>
-    <%else%>
-      <%= link_to "/", target: "_blank" do %>
-        <%= image_tag "/assets/wasuremono_title.png" %>
-      <% end %>
-    <%end%>
-  <%else%>
-    <%= link_to "/", target: "_blank" do %>
-        <%= image_tag "/assets/wasuremono_title.png" %>
-    <% end %>
-  <%end%>
+      <%end%>
   </h1>
   <nav class="pc-nav">
   <div class="current_user">
@@ -68,16 +56,17 @@
       <p class="alert-con">
         生徒からのメッセージ:
       </p>
-      <button class="button_close">分かりました</button>
-    </div>
+      <button class="button_go_chat"><%=link_to("チャット一覧へ","/admin/chats")%></button>
 <%else%>
     <div class="alert-box">
       <p class="alert-con">
         管理人からのメッセージ
       </p>
-      <button class="button_close">分かりました</button>
-    </div>
+      <button class="button_go_chat"><%=link_to("チャット一覧へ","/chats")%></button>
 <%end%>
+  
+  <button class="button_close">閉じる</button>
+    </div>
 <%end%>
   <div class="container back">
   <%if flash.alert%>

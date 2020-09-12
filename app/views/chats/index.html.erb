@@ -1,20 +1,26 @@
 <h2>管理人とのチャット</h2>
 <div id="chats">
 <% @chats.each do |chat|%>
-    <%if chat.isAdmin%>
-    <div id="chat">
-        管理者：<br>
-        メッセージ：<%=chat.sentence%><br>
+  <%if chat.isAdmin%>
+    <div class="balloon6">
+    <div class="faceicon">
+     <img src="#" alt="ここに画像">
+    </div>
+    <div class="chatting">
+      <div class="says">
+        <p><%=chat.sentence%></p>
       </div>
+    </div>
+  </div>
     <%else%>
-    <div id="chat">
-    <p style="text-align:right;">
-        自分：
-        メッセージ：<%=chat.sentence%><br></p>
-      </div>
+    <div class="mycomment">
+    <p>
+    <%=chat.sentence%>
+    </p>
+  </div>
     <%end%>
     <%end%>
-</div>
+</div>   
 <h3>チャット送信</h3>
 <form>
   <label>送りたい内容を入力してね</label><br>
