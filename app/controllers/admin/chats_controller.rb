@@ -52,7 +52,8 @@ class Admin::ChatsController < Admin::Base
     end
 
     def destroy
-
+        @chats=Chat.where(user_id: params[:id]).destroy_all
+        redirect_to("/admin/chats")
     end
 
     def chat_params

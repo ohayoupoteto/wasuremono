@@ -23,3 +23,8 @@
     $("body").css("margin-top", height + 50);//10pxだけ余裕をもたせる
     /*e.preventDefault();*/
 });
+
+//「閉じる」を押したらアラートボックスを閉じる
+$(document).on('click', '.button_close',function(){
+    $(".alert-box").hide();
+});
