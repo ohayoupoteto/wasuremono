@@ -14,11 +14,11 @@ App.room = App.cable.subscriptions.create "RoomChannel",
       #alert "管理人からのメッセージ：#{data['message']}"
       word="<div class='balloon6'><div class='faceicon'><img src='' alt='ここに画像'></div><div class='chatting'><div class='says'><p>#{data['message']}</p></div></div></div>"
       $(".alert-con").text("管理人からのメッセージ：#{data['message']}")
-      $(".alert-box").show();
+      $(".alert-by-admin").show();
     else
       word="<div class='balloon6'><div class='faceicon'><img src='' alt='ここに画像'></div><div class='chatting'><div class='says'><p>#{data['message']}</p></div></div></div>"
       $(".alert-con").text("生徒からのメッセージ：#{data['message']}")
-      $(".alert-box").show();
+      $(".alert-by-student").show();
     $('#chats').append(word)
     #alert data['message']
     # Called when there's incoming data on the websocket for this channel

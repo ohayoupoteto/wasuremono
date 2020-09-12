@@ -52,13 +52,13 @@
   </header>
 <%if current_user%>
 <%if current_user.admin%>
-  <div class="alert-box">
+  <div class="alert-box alert-by-student">
       <p class="alert-con">
         生徒からのメッセージ:
       </p>
       <button class="button_go_chat"><%=link_to("チャット一覧へ","/admin/chats")%></button>
 <%else%>
-    <div class="alert-box">
+    <div class="alert-box alert-by-admin">
       <p class="alert-con">
         管理人からのメッセージ
       </p>
