@@ -20,8 +20,26 @@
 //ヘッダーの高さ分だけコンテンツを下げる
     $(document).on ("turbolinks:load", function(){
     var height=$("header").height();
-    $("body").css("margin-top", height + 50);//10pxだけ余裕をもたせる
+    $("body").css("margin-top", height + 10);//10pxだけ余裕をもたせる
     /*e.preventDefault();*/
+    function scrollChk(){
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+      
+          jQuery('.scroll-animation').not('.active').each(function(){
+              var pos = $(this).offset().top;
+      
+              if (scroll > pos - windowHeight){
+                  $(this).addClass("active");
+              }
+          });
+      }
+      $(window).scroll(function (){
+          scrollChk();
+      });
+      $('body').on('touchmove', function() {
+          scrollChk();
+      });
 });
 
 //「閉じる」を押したらアラートボックスを閉じる
