@@ -21,7 +21,13 @@
       <li><%=lost.detail%></li>
       </ul>
       </td>
-      <td><%=link_to("この忘れ物に対して申請する","/q3/#{@matter.id}/#{lost.id}")%></td>
+      <td>
+      <div class="other-btn">
+      <button type="button" class="btn">
+      <%=link_to("この忘れ物に対して申請する","/q3/#{@matter.id}/#{lost.id}")%>
+      </button>
+      </div>
+      </td>
     </tr>
     
 <%end%>

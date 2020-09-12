@@ -88,11 +88,22 @@
    /************************************
 ** トップページ
 ************************************/
+/*
+.top-photo{
+    width:100%;
+    height: 100vh;
+    background-image:url("/assets/top-photo-osya.png");
+    background-size: contain;
+    background-repeat:no-repeat;
+}*/
+.top-photo>img{
+    width:100%;
+}
 #top{
     display:flex;
     justify-content: center;
     align-items: center;
-    margin-top:210px;
+    margin-top:50px;
     /*background-color:#fff;*/
 }
 #top-image{
@@ -109,7 +120,7 @@
 }
 .top-sentence h2{
     margin-bottom:50px;
-    font-size:2.6rem;
+    font-size:2.3rem;
 }
 .top-sentence p{
     font-size:1.1rem;
@@ -124,7 +135,7 @@
  .alert-box{
     position: absolute;
     top:0;
-    top: 20%;
+    top: 17%;
     left: 50%;
     -webkit-transform : translate(-50%,-50%);
     transform : translate(-50%,-50%);
@@ -218,10 +229,9 @@ header .btn {
     border:initial!important;
     box-shadow: 0 2px 2px rgba(0,0,0,0.23);
     font-weight: 900!important;
-    
  }
  .go-to-login .btn{
-    background-color:rgb(244,165,138);
+    background-color:rgb(244,165,138);/*#F8A839*/
     margin-left:10px;
     border-radius: 10px;
     box-shadow: 0 4px 4px rgba(0,0,0,.2), 0 2px 3px -2px rgba(0,0,0,.15);
@@ -231,6 +241,24 @@ header .btn {
     color:#fff;
     font-weight: 900;
  }
+ .other-btn .btn{
+    background-color:rgb(244,165,138);/*#F8A839*/
+    margin-left:10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0,0,0,.1), 0 2px 3px -2px rgba(0,0,0,.1);
+ }
+ .other-btn .btn a{
+    text-decoration: none;
+    color:#fff;
+    font-weight: 900;
+ }
+
+ /************************************
+** テーブル
+************************************/
+.table{
+    margin-top:50px;
+}
 
 /************************************
 ** チャットの吹き出し
@@ -303,7 +331,7 @@ header .btn {
   max-width: 250px;
   border-radius: 12px;
   background: #30e852;
-  font-size: 15px:
+  font-size: 15px;
 }
 
 .mycomment p:after {
@@ -351,7 +379,7 @@ header .btn {
  .fade-in2 {
     opacity: 0;
     animation-name: fadein2;
-    animation-duration:1s;
+    animation-duration:2s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
  }
@@ -368,7 +396,7 @@ header .btn {
  .fade-in3 {
     opacity: 0;
     animation-name: fadein3;
-    animation-duration: 1.5s;
+    animation-duration: 1.7s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
  }
@@ -428,4 +456,21 @@ header .btn {
         opacity: 1;
     }
   
+  }
+  .fadein-left{
+    -webkit-transition: all 1.1s linear;
+    -o-transition: all 1.1s linear;
+    transition: all 1.1s linear;
+    -webkit-transform: translateX(-100px);
+    -moz-transform: translateX(-100px);
+    -ms-transform: translateX(-100px);
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  .fadein-left.active{
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
   }

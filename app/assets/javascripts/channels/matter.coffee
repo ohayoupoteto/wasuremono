@@ -8,7 +8,8 @@ App.matter = App.cable.subscriptions.create "MatterChannel",
     console.log("disconnect!");
 
   received: (data) ->
-    alert "申請が届きました。"
+    $(".alert-con").text("申請が届きました")
+    $(".alert-by-student").show();
     
     
     # Called when there's incoming data on the websocket for this channel
