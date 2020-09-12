@@ -8,10 +8,11 @@
     <p class="mark_check">画像認識を用いて大学の教室内の忘れ物を検知</p>
     <p class="mark_check">このアプリに自動で追加し忘れ物管理を楽に。</p>
     <p class="mark_check">チャット機能で生徒とのやりとりもスムーズに</p>
-    
+<%unless current_user%>
     <div class="go-to-login">
       <button type="button" class="btn"><%=link_to("ログインする","login")%></button>
     </div>
+<%end%>
   </div>
 
   <div class="top-image float col-md-6 col-lg-6">

@@ -40,7 +40,7 @@
  }
  
  header{
-     background-color:rgba(252,214,158,.5);
+     background-color:rgba(252,214,158,.99);
      width:100%;
      padding: 30px 4% 10px;
     position: fixed;/*固定*/
