@@ -1,8 +1,14 @@
 <h2>トークルーム一覧</h2>
-
-<div id="chats">
+<table class="table table-bordered">
+<tbody>
 <% @user_name.each do |user|%>
+<tr>
+  <td>
     <div id="chat">
     <%=link_to("#{user}さんとのチャット","/admin/chats/#{User.find_by(name:user).id}")%> <br>
     </div>
+  </td>
+</tr>
 <%end%>
+</tbody>
+</table>

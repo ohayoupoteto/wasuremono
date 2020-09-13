@@ -6,7 +6,11 @@ class ApplicationController < ActionController::Base
     end
 
     private def login_required#ログインユーザだけ
-        raise Login_required unless current_user
+        unless current_user
+            #raise Login_required 
+            flash[:alert]="ログインしてください"
+            render("layouts/error")
+        end
     end
 
     class Login_required < StandardError; end

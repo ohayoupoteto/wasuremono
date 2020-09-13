@@ -1,17 +1,37 @@
 <h2>授業一覧</h2>
-<div id="lessons">
+<table class="table table-bordered">
+<thred>
+  <tr>
+  <th>授業名</th>
+  <th>教室</th>
+  <th>教師</th>
+  </tr>
+</thred>
+<tbody>
 <% @lessons.each do |lesson|%>
-    <div id="lost">
-       名前：<%=lesson.name%> <br>
-       教師：<%=lesson.teacher%><br>
-       教室：<%=lesson.classroom.name%>
-    </div>
-    <%=link_to("削除する","/admin/lessons/#{lesson.id}",method: :delete)%>
-    <br><br>
+<tr>
+  <td><%=lesson.name%></td>
+  <td><%=lesson.classroom.name%></td>
+  <td><%=lesson.teacher%></td>
+  <td>
+  <div class="other-btn">
+      <%=link_to "/admin/lessons/#{lesson.id}",method: :delete do%>
+      <button type="button" class="btn">削除する</button>
+      <%end%>
+      </div>
+  </td>
+</tr>
 <%end%>
+</tbody>
+</table>
+
+<div class="other-btn">
+    <%=link_to "/admin/lessons/new" do%>
+      <button type="button" class="btn">新規作成</button>
+    <%end%>
 </div>
 
-<%=link_to("新規作成","/admin/lessons/new")%>
+
 
 
 

@@ -1,19 +1,37 @@
-<% @users.each do |user|%>
-    <div>
-    <table>
+<h2>ユーザー一覧</h2>
+<table class="table table-bordered">
+<thred>
     <tr>
-    <th>ユーザーID</th>
-    <td><%=user.student_id%></td>
+      <th>ユーザーID</th>
+      <th>氏名</th>
     </tr>
+  </thred>
+  <tbody>
+  <% @users.each do |user|%>
     <tr>
-    <th>氏名</th>
-    <td><%=link_to("#{user.name}","/admin/users/#{user.id}")%></td>
+      <td> <%=user.student_id%></td>
+      <td><%=link_to("#{user.name}","/admin/users/#{user.id}")%></td>
+      <td>
+      <div class="other-btn" style="margin-bottom:7px;">
+      <%=link_to "/admin/users/#{user.id}/edit" do%>
+      <button type="button" class="btn">編集する</button>
+      <%end%>
+      </div>
+
+      <div class="other-btn">
+      <%=link_to("/admin/users/#{user.id}",method: :delete) do%>
+      <button type="button" class="btn">削除する</button>
+      <%end%>
+      </div>
+        
+        
+      </td>
     </tr>
-    </table>
-    <%=link_to("編集する","/admin/users/#{user.id}/edit")%>
-    <%=link_to("削除する","/admin/users/#{user.id}",method: :delete)%>
-    </div>
-<%end%>
-<div>
-<%=link_to("生徒追加","/admin/users/new")%>
-</div>
+  <%end%>
+ </tbody>
+ </table>
+ <div class="other-btn">
+      <%=link_to "/admin/users/new" do%>
+      <button type="button" class="btn">追加する</button>
+      <%end%>
+      </div>

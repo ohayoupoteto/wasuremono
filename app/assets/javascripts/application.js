@@ -21,7 +21,15 @@
     $(document).on ("turbolinks:load", function(){
     var height=$("header").height();
     $("body").css("margin-top", height + 10);//10pxだけ余裕をもたせる
-    /*e.preventDefault();*/
+    
+    $(".drop-menu").hide();
+    $(".drop").click(function(e){
+        $(".drop-menu").hide();
+        if($(".drop-menu").css("display")=="none"){
+            $(".drop-menu").show();
+        }
+    });
+    /*スクロールのアニメーションのやつ*/
     function scrollChk(){
         var scroll = $(window).scrollTop();
         var windowHeight = $(window).height();

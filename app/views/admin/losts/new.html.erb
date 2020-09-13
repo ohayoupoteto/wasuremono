@@ -1,12 +1,35 @@
 <h2>忘れ物追加</h2>
 <% category=["貴重品","傘","文房具","衣類","スマートフォン"]%>
-
+<table class="table table-bordered">
+<tbody>
 <%=form_for @lost ,url:admin_losts_path do |form|%>
+ <tr>
+  <th scope="row">イメージ</th>
+  <td scope="row">
   <%=form.label :new_lost_picture%>
   <%=form.file_field :new_lost_picture %>
-  名前：<%=form.text_field :name%>
-  カテゴリー：<%=form.select :category,category%>
-  詳細：<%= form.text_field :detail%>
-  授業：<%= form.select :lesson_id, @lesson_array %>
-  <%=form.submit("追加する")%>
+  </td>
+ </tr>
+ <tr>
+ <th scope="row">名前</th>
+ <td scope="row"><%=form.text_field :name%></td>
+ </tr>
+ <tr>
+ <th scope="row">カテゴリー</th>
+ <td scope="row"><%=form.select :category,category%></td>
+ </tr>
+ <tr>
+ <th scope="row">詳細</th>
+ <td scope="row"><%= form.text_field :detail%></td>
+ </tr> 
+ <tr>
+ <th scope="row">授業</th>
+ <td scope="row"><%= form.select :lesson_id, @lesson_array %></td>
+ </tr>
+ </tbody>
+ </table>
+
+ <div class="other-btn">
+   <button type="button" class="btn"><%=form.submit("追加する")%></button>
+ </div>
 <%end%>

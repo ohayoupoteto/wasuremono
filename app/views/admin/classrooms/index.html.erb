@@ -1,18 +1,27 @@
 <h2>教室一覧</h2>
-<div id="classrooms">
+<table class="table table-bordered">
+<tbody>
 <% @classrooms.each do |classroom|%>
-    <div id="lost">
-       名前：<%=classroom.name%> 
-    </div>
-    <div>
-    <%=link_to("削除する","/admin/classrooms/#{classroom.id}",method: :delete)%>
-    </div>
-    <br>
-    
+<tr>
+  <td scope="row"><%=classroom.name%></td>
+  <td scope="row">
+  <div class="other-btn">
+      <%=link_to("/admin/classrooms/#{classroom.id}",method: :delete) do%>
+      <button type="button" class="btn">削除する</button>
+      <%end%>
+      </div>
+  </td>
+</tr>  
+<%end%>
+</tbody>
+</table>
+
+<div class="other-btn">
+<%=link_to "/admin/classrooms/new" do%>
+  <button type="button" class="btn">新規作成</button>
 <%end%>
 </div>
 
-<%=link_to("新規作成","/admin/classrooms/new")%>
 
 
 

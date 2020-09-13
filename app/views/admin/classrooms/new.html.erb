@@ -1,5 +1,14 @@
 <h2>教室追加</h2>
+<table class="table table-bordered">
+<tbody>
 <%=form_for @classroom,url:admin_classrooms_path do |form|%>
-    名前：<%=form.text_field :name%>
-    <%=form.submit("追加する")%>
+    <tr>
+      <td><%=form.text_field :name%></td>
+      
+    </tr>
+    </tbody>
+</table>
+    <div class="other-btn">
+      <button type="button" class="btn"><%=form.submit("追加する")%></button>
+      </div>
   <%end%>

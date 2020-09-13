@@ -3,7 +3,9 @@ class Admin::Base < ApplicationController
 
     private def admin_login_required
         unless current_user&.admin
-            raise Forbidden 
+            #raise Forbidden 
+            flash[:alert]="無効な操作です"
+            render("layouts/error")
         end
     end
 end

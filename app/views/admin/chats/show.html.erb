@@ -28,5 +28,8 @@
   <input type="text" data-behavior="room_speaker_admin">
   <input id="user_id_admin" type="hidden" value= "<%=@user_id%>" value2= "<%=current_user.admin%>">
 </form>
-
-<button><%=link_to("このチャットを終了する","/admin/chats/#{@user_id}",method: :delete,data: {confirm: "本当にこのチャットを終了しますか？"})%></button>
+<div class="other-btn">
+<button type="button" class="btn">
+<%=link_to("このチャットを終了する","/admin/chats/#{@user_id}",method: :delete,data: {confirm: "本当にこのチャットを終了しますか？"})%>
+ </button>
+</div>
