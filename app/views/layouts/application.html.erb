@@ -4,7 +4,6 @@
     <title>Wasuremono</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
@@ -29,28 +28,39 @@
     </div>
       <%end%>
   <%if current_user && current_user.admin%>
-      <button type="button" class="btn btn-sm">
-            <%=link_to("忘れ物追加","/admin/losts/new")%>
-            </button>
-            <div class="dropdown">
-              <button type="button" class="btn dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <%=link_to"/admin/losts/new" do%>
+      <button type="button" class="btn btn-sm">忘れ物追加</button>
+  <%end%>
+            
+            <div class="drop">
+              <button type="button" class="btn  btn-sm">
               各種一覧</button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <%=link_to("忘れ物一覧","/admin/losts",class:"dropdown-item")%>
-                <%=link_to("教室一覧","/admin/classrooms",class:"dropdown-item")%>
-                <%=link_to("授業一覧","/admin/lessons",class:"dropdown-item")%>
-                <%=link_to("生徒一覧","/admin/users",class:"dropdown-item")%>
+              
+              <ul class="drop-menu" aria-labelledby="dropdownMenuButton">
+                <li><%=link_to("忘れ物一覧","/admin/losts",class:"dropdown-item")%></li>
+                <li><%=link_to("教室一覧","/admin/classrooms",class:"dropdown-item")%></li>
+                <li><%=link_to("授業一覧","/admin/lessons",class:"dropdown-item")%></li>
+                <li><%=link_to("生徒一覧","/admin/users",class:"dropdown-item")%></li>
+              </ul>
               </div>
-              </div>
-        <button type="button" class="btn btn-sm">
-          <%=link_to("申請を見る","/admin/matters")%>
-        </button>
-        <button type="button" class="btn btn-sm">
-          <%=link_to("チャット","/admin/chats")%>
-        </button> 
+              
+  <%=link_to "/admin/matters" do%>
+        <button type="button" class="btn btn-sm">申請一覧</button>
+  <%end%>
+        
+  <%=link_to "/admin/chats" do%>
+        <button type="button" class="btn btn-sm">チャット</button> 
+  <%end%>
+  <%else%>
+  <%=link_to "/chats" do%>
+        <button type="button" class="btn btn-sm">チャット履歴</button> 
+  <%end%>
+        
     </nav>
   <%end%>
   </header>
+  <%else%>
+  
   <%end%>
   <%= yield :top %>
 
@@ -66,7 +76,7 @@
       <p class="alert-con">
         管理人からのメッセージ
       </p>
-      <button class="button_go_chat"><%=link_to("チャット一覧へ","/chats")%></button>
+      <button class="button_go_chat"><%=link_to("チャットルームへ","/chats")%></button>
 <%end%>
   
   <button class="button_close">閉じる</button>

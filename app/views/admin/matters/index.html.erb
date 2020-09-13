@@ -1,13 +1,31 @@
 <h2>申請一覧</h2>
-<div id="matters">
+<table class="table table-bordered">
+<thred>
+  <tr>
+    <th>生徒名</th>
+    <th>忘れ物</th>
+    <th>授業</th>
+    <th>申請時刻</th>
+    <th>メッセージ</th>
+  </tr>
+</thred>
+<tbody>
 <% @matters.each do |matter|%>
-    <div id="matter">
-       生徒名：<%=matter.user.name%> <br>
-       授業：<%= matter.lost.lesson.name %><br>
-       忘れ物：<%=link_to("#{matter.lost.category}","/admin/losts/#{matter.lost.id}")%>
-       追加時刻：<%=matter.created_at%><br>
-       メッセージ：<%=matter.eve%>
-    </div>
-    <%=link_to("チャットを開始する","/admin/chats/start/#{matter.user.id}", method: :post)%>
-    <br>
+ <tr>
+   <td><%=matter.user.name%></td>
+   <td><%=link_to("#{matter.lost.category}","/admin/losts/#{matter.lost.id}")%></td>
+   <td><%= matter.lost.lesson.name %></td>
+   <td><%=matter.created_at%></td>
+   <td><%=matter.eve%></td>
+   <td>
+   <div class="other-btn">
+      <%=link_to "/admin/chats/start/#{matter.user.id}", method: :post do%>
+      <button type="button" class="btn">チャットを開始する</button>
+      <%end%>
+   </div>
+
+   </td>
+ </tr>
 <%end%>
+</tbody>
+</table>

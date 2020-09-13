@@ -59,7 +59,7 @@ class Admin::UsersController < Admin::Base
             flash[:notice]="生徒を編集できました"
             
         else
-            flash[:notice]="生徒を編集できませんでした"
+            flash[:alert]="生徒を編集できませんでした"
             #render("users#edit")
         end
         redirect_to("/admin/users")

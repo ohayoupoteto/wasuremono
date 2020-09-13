@@ -1,16 +1,33 @@
 <h2>忘れ物詳細</h2>
-<%if @lost.lost_picture.attached?%>
-  イメージ:<%=image_tag @lost.lost_picture.variant(resize: "128x128")%>
-<%end%>
-名前：<%=@lost.name%>
-<br>
-カテゴリー：<%=@lost.category%>
-<br>
-詳細：<%=@lost.detail%>
-<br>
-教室：<%=@lost.lesson.classroom.name%>
-<br>
-授業：<%=@lost.lesson.name%>
-<div>
-<%=link_to("削除する","/admin/losts/#{@lost.id}",method: :delete)%>
-</div>
+<table class="table table-bordered">
+<tbody>
+<tr>
+  <th>イメージ</th>
+  <td><%if @lost.lost_picture.attached?%>
+      <%=image_tag @lost.lost_picture.variant(resize: "128x128")%>
+    <%end%>
+  </td>
+</tr>
+<tr>
+  <th>カテゴリー</th>
+  <td><%=@lost.category%></td>
+</tr>
+<tr>
+  <th>詳細</th>
+  <td><%=@lost.detail%></td>
+</tr>
+<tr>
+  <th>授業</th>
+  <td><%=@lost.lesson.name%></td>
+</tr>
+<tr>
+  <th>教室</th>
+  <td><%=@lost.lesson.classroom.name%></td>
+</tr>
+<tr>
+  <th>追加時刻</th>
+  <td><%=@lost.created_at%></td>
+</tr>
+</tbody>
+</table>
+<td><%=link_to("削除する","/admin/losts/#{@lost.id}",method: :delete)%></td>

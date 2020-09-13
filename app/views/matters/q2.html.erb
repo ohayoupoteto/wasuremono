@@ -23,9 +23,9 @@
       </td>
       <td>
       <div class="other-btn">
-      <button type="button" class="btn">
-      <%=link_to("この忘れ物に対して申請する","/q3/#{@matter.id}/#{lost.id}")%>
-      </button>
+      <%=link_to "/q3/#{@matter.id}/#{lost.id}" do%>
+      <button type="button" class="btn">この忘れ物に対して申請する</button>
+      <%end%>
       </div>
       </td>
     </tr>

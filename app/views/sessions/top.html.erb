@@ -1,36 +1,52 @@
 <% content_for :top do %>
   <div class="top-photo">
+    <%unless current_user%>
+    <%=link_to "login" do%>
+      <button type="button" class="btn expansion">ログイン</button>
+      <%end%>
+      <%end%>
     <img src="/assets/top-photo-osya.png" alt="" class="fade-in2">
   </div>
 <% end %>
+<div class="how-system">
+  <p>どんなシステムなの?</p>
+  <img src="assets/黄色矢印.png" alt="">
+</div>
 <%if flash.alert||flash.notice%>
-  <div id="top" class="row fadein-left  scroll-animation" style="margin-top:30px;">
+  <div id="top" class="row fadein-left scroll-animation" style="margin-top:30px;">
 <%else%>
 <div id="top" class="row fadein-left  scroll-animation">
 <%end%>
   <div class="top-sentence col-md-6 col-lg-6">
     <h2>大学の忘れ物管理を楽にー。</h2>
-    <p style="font-size:1rem;">本システムでは画像認識の技術を用いて<br>大学の教室内の忘れ物を検知・判別することによって、<br>教務課の忘れ物管理を楽にし、生徒の忘れ物の紛失を防ぎます。</p>
-    <p class="mark_check">大学の教室内の忘れ物を検知すると<br>このアプリを通して管理側に通知が行くように。</p>
-    <p class="mark_check">更に自動でその忘れ物を登録し<br>管理側・生徒側両方が参照できるように。</p>
-    <p class="mark_check">チャット機能で生徒への引き渡しまでスムーズに。</p>
+    <p style="font-size:1rem;" class="dis">本システムでは画像認識の技術を用いて<br>大学の教室内の忘れ物を検知・判別することによって、<br>教務課の忘れ物管理を楽にし、生徒の忘れ物の紛失を防ぎます。</p>
+   
+      <p class="mark_check">大学の教室内の忘れ物を検知すると<br>このアプリを通して管理側に通知が行くように。</p>
+      <p class="mark_check">更に自動でその忘れ物を登録し<br>管理側・生徒側両方が参照できるように。</p>
+      <p class="mark_check">チャット機能で生徒への引き渡しまでスムーズに。</p>
+    
 <%unless current_user%>
     <div class="go-to-login">
-      <button type="button" class="btn"><%=link_to("ログインする","login")%></button>
+      <%=link_to "login" do%><button type="button" class="btn">ログインする</button><%end%>
     </div>
 <%end%>
 <%if current_user%>
   <%unless current_user.admin%>
   <div class="go-to-login">
-    <button type="button" class="btn"><%=link_to("申請する","/q1")%></button>
+    <%=link_to "/q1" do%><button type="button" class="btn">申請する</button><%end%>
   </div>
   <%end%>
 <%end%>
   </div>
 
-  <div class="top-image float col-md-6 col-lg-6">
+  <div class="top-image col-md-6 col-lg-6">
     <img src="/assets/top.png" alt="忘れ物検知システム" id="top-image">
   </div>
 </div>
+<style>
+  .container{
+    margin-top:initial!important;
+  }
+</style>
 
 
