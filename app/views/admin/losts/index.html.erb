@@ -2,40 +2,36 @@
 <%unless current_user%>
 <%=render("shared/login-form")%>
 <%else%>
-<div id="losts">
 <table class="table table-bordered">
   <thead>
     <tr>
       <th scope="col">イメージ</th>
       <th scope="col">名前</th>
-      <th scope="col">詳細</th>
+      <th scope="col">カテゴリー</th>
+      <th scope="col">授業</th>
+      <th scope="col">追加時刻</th>
     </tr>
     </thead>
     <tbody>
 <% @losts.each do |lost|%>
-
-    
     <tr>
-    <td scope="row">
+    <td>
     <%if lost.lost_picture.attached?%>
       <%=image_tag lost.lost_picture.variant(resize: "128x128")%>
       <%end%>
-    </td>
-      <th scope="row"><%=link_to(lost.name,"/admin/losts/#{lost.id}")%></th>
-      <td scope="row">
-      <ul>
-      <li><%=lost.category%></li>
-      <li><%=lost.lesson.classroom.name%></li>
-      <li><%=lost.lesson.name%></li>
-      <li><%=lost.detail%></li>
-      </ul>
+      <td>
+      <%= link_to lost.name,"/admin/losts/#{lost.id}" %>
       </td>
+    </td>
+      <td><%=lost.category%></td>
+      <td><%=lost.lesson.name%></td>
+      <td><%=lost.created_at.strftime("%Y-%m-%d %H:%M")%></td>
     </tr>
-    
-<%end%>
+    <%end%>
+
 </tbody> 
     </table>
-</div>
+
 
 
 <%end%>

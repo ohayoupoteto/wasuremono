@@ -14,13 +14,13 @@
       <td>
       <div class="other-btn" style="margin-bottom:7px;">
       <%=link_to "/admin/users/#{user.id}/edit" do%>
-      <button type="button" class="btn">編集する</button>
+      <button type="button" class="btn" style="background-color:rgba(153,204,255,.5)">編集する</button>
       <%end%>
       </div>
 
       <div class="other-btn">
       <%=link_to("/admin/users/#{user.id}",method: :delete) do%>
-      <button type="button" class="btn">削除する</button>
+      <button type="button" class="btn" style="background-color:rgba(244,165,138,.5)">削除する</button>
       <%end%>
       </div>
         
