@@ -58,7 +58,8 @@ class MattersController < ApplicationController
         @matter=Matter.find(params[:id])
         @matter.eve=params[:matter][:eve]
         if @matter.save!
-            flash[:notice]="申請を完了しました。"
+            flash[:notice]="申請が完了しました。教務課からの連絡をお待ちください。"
+            render("layouts/matter")
         else
             flash[:alert]="やり直してください"
         end

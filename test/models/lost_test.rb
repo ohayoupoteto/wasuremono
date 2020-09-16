@@ -6,8 +6,8 @@ class LostTest < ActiveSupport::TestCase
       name:"黒い傘",
       detail:"取っ手が錆びています",
       category:"傘",
-      lesson_id:1
+      lesson_id:2
     )
-    assert test.save,"保存に失敗だよ"
+    assert lost.save,"保存に失敗だよ"
   end
 end

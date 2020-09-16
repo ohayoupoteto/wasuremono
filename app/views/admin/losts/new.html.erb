@@ -1,12 +1,12 @@
 <h2>忘れ物追加</h2>
 <% category=["貴重品","傘","文房具","衣類","スマートフォン"]%>
+
+<%=form_for @lost ,url:admin_losts_path do |form|%>
 <table class="table table-bordered">
 <tbody>
-<%=form_for @lost ,url:admin_losts_path do |form|%>
  <tr>
   <th scope="row">イメージ</th>
   <td scope="row">
-  <%=form.label :new_lost_picture%>
   <%=form.file_field :new_lost_picture %>
   </td>
  </tr>

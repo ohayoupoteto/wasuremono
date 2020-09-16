@@ -15,9 +15,9 @@
     <tbody>
 <% @losts.each do |lost|%>
     <tr>
-    <td>
+    <td style="text-align:center">
     <%if lost.lost_picture.attached?%>
-      <%=image_tag lost.lost_picture.variant(resize: "128x128")%>
+      <%=image_tag lost.lost_picture.variant(resize: "100x100")%>
       <%end%>
       <td>
       <%= link_to lost.name,"/admin/losts/#{lost.id}" %>

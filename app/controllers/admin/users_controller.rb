@@ -77,6 +77,6 @@ class Admin::UsersController < Admin::Base
     end
 
     def user_params
-        params.require(:user).permit(:name,:faculty,:grade,:student_id,:password,:password_confirmation)
+        params.require(:user).permit(:name,:faculty,:grade,:student_id,:email,:password,:password_confirmation)
     end
 end
