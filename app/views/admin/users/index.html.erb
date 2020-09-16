@@ -17,7 +17,6 @@
       <button type="button" class="btn" style="background-color:rgba(153,204,255,.5)">編集する</button>
       <%end%>
       </div>
-
       <div class="other-btn">
       <%=link_to("/admin/users/#{user.id}",method: :delete) do%>
       <button type="button" class="btn" style="background-color:rgba(244,165,138,.5)">削除する</button>
@@ -30,6 +29,7 @@
   <%end%>
  </tbody>
  </table>
+ <%=paginate @users%>
  <div class="other-btn">
       <%=link_to "/admin/users/new" do%>
       <button type="button" class="btn">追加する</button>

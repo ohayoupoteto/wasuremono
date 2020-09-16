@@ -11,7 +11,7 @@ class Admin::ChatsController < Admin::Base
     end
 
     def index
-        @users=User.where(admin:false)
+        @users=User.where(admin:false).page(params[:page]).per(20)
         @user_name=[]
         @users.each do |user|
             if Chat.find_by(user_id:user.id)

@@ -71,3 +71,6 @@ gem 'execjs'
 gem 'therubyracer'
 
 gem "aws-sdk-s3", require: false
+
+gem 'kaminari'
+gem 'kaminari-i18n'

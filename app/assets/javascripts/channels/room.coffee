@@ -12,7 +12,7 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     if data['isAdmin'] is true
       word_other="<div class='balloon6'><div class='faceicon'><img src='/assets/admin.png' alt='管理人'></div><div class='chatting'><div class='says'><p>#{data['message']}</p></div></div></div>"
       word_myself="<div class='mycomment'><p>#{data['message']}</p></div>"
-      $(".alert-con").text("管理人からのメッセージ：#{data['message']}")
+      $(".alert-con").text("#{data['message']}")
       $(".alert-by-admin").show()
       if data['currentAdmin'] is true
         $('#chats').append(word_myself)
@@ -22,7 +22,7 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     else
       word_other="<div class='balloon6'><div class='faceicon'><img src='/assets/student.png' alt='生徒'></div><div class='chatting'><div class='says'><p>#{data['message']}</p></div></div></div>"
       word_myself="<div class='mycomment'><p>#{data['message']}</p></div>"
-      $(".alert-con").text("生徒からのメッセージ：#{data['message']}")
+      $(".alert-con").text("#{data['message']}")
       $(".alert-by-student").show()
       if data['currentAdmin'] is true
         $('#chats').append(word_other)

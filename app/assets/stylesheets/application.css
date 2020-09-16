@@ -66,12 +66,12 @@
  header h1 img{
      max-width:170px;
  }
- nav {
+ header nav {
     margin: 40px 0 0 auto;
     display: flex!important;
  }
  @media (max-width:660px){
-    nav {
+    header nav {
         display: none!important;
      }
  }
@@ -83,7 +83,7 @@
  /*flash*/
  .alert{
      opacity:.6;
-     top:-20px;
+     top:-10px;
  }
  .drop-menu{
      position:absolute;
@@ -93,6 +93,10 @@
 }
 .drop-menu li a{
     color:#fff;
+}
+nav.pagination{
+    display:block;
+    text-align: center;
 }
    /************************************
 ** トップページ
@@ -190,18 +194,36 @@
     left: 50%;
     -webkit-transform : translate(-50%,-50%);
     transform : translate(-50%,-50%);
-    width:40%;
-    box-shadow: 5px 10px 20px rgba(0,0,0,0.18);
+    width:45%;
+    box-shadow: 5px 10px 20px rgba(0,0,0,.3);
     padding: 5% 5% 3% 5%;
     background-color:#fff;
     text-align:center;
     z-index: 999;
     -webkit-animation: 5s alert ease-in-out;
     animation: 5s alert ease-in-out;
-    display:none;
-    
+    display: none;
     position: fixed;/*固定*/
+    border-radius: 10px;
 }
+.alert-box .button_go_chat{
+    background-color:#65B2FF;
+    border:initial;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+.alert-box .button_go_chat a{
+    color:#fff;
+}
+.alert-box .button_close{
+    border:initial;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+.alert-box button {
+    font-size:.8em
+}
+
  /************************************
 ** 生徒用のフォーム
 ************************************/
