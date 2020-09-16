@@ -12,4 +12,5 @@ class User < ApplicationRecord
     validates :grade, presence: true  ,numericality: {only_integer: true,greater_than: 0,less_than: 5,allow_blank: true}
     #validates :admin, presence: true
     validates :password, presence: true,length: {minimum:1, maximum: 10 ,allow_blank: true}
+    validates :email, email: {allow_blank: true}
 end

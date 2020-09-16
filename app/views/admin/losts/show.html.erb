@@ -3,8 +3,8 @@
 <tbody>
 <tr>
   <th>イメージ</th>
-  <td><%if @lost.lost_picture.attached?%>
-      <%=image_tag @lost.lost_picture.variant(resize: "128x128")%>
+  <td style="text-align:center"><%if @lost.lost_picture.attached?%>
+      <%=image_tag @lost.lost_picture.variant(resize: "100x100")%>
     <%end%>
   </td>
 </tr>

@@ -1,7 +1,8 @@
 <h2>ユーザー追加</h2>
+
+<%=form_for @user,url:admin_users_path do |form|%>
 <table class="table table-bordered">
 <tbody>
-<%=form_for @user,url:admin_users_path do |form|%>
     <tr>
     <th>ユーザーID</th>
     <td><%=form.text_field :student_id%></td>
@@ -20,6 +21,11 @@
     <tr>
     <th>学年</th>
     <td><%=form.text_field :grade%></td>
+    </tr>
+
+    <tr>
+    <th>メールアドレス</th>
+    <td><%=form.text_field :email%></td>
     </tr>
 
     <tr>
