@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Wasuremono</title>
+    <title>ワスレン ~画像認識で忘れ物管理を楽に~</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -14,6 +14,7 @@
 
   <body>
   <%if current_user%>
+    <%# ログインユーザーが見れるヘッダー %>
   <header>
   <h1>
       <%= link_to "/" do %>
@@ -31,18 +32,15 @@
   <%=link_to"/admin/losts/new" do%>
       <button type="button" class="btn btn-sm">忘れ物追加</button>
   <%end%>
-            
-            <div class="drop">
-              <button type="button" class="btn  btn-sm">
-              各種一覧</button>
-              
-              <ul class="drop-menu" aria-labelledby="dropdownMenuButton">
-                <li><%=link_to("忘れ物一覧","/admin/losts",class:"dropdown-item")%></li>
-                <li><%=link_to("教室一覧","/admin/classrooms",class:"dropdown-item")%></li>
-                <li><%=link_to("授業一覧","/admin/lessons",class:"dropdown-item")%></li>
-                <li><%=link_to("生徒一覧","/admin/users",class:"dropdown-item")%></li>
-              </ul>
-              </div>
+  <div class="drop">
+    <button type="button" class="btn  btn-sm">各種一覧</button>
+      <ul class="drop-menu" aria-labelledby="dropdownMenuButton">
+        <li><%=link_to("忘れ物一覧","/admin/losts",class:"dropdown-item")%></li>
+        <li><%=link_to("教室一覧","/admin/classrooms",class:"dropdown-item")%></li>
+        <li><%=link_to("授業一覧","/admin/lessons",class:"dropdown-item")%></li>
+        <li><%=link_to("生徒一覧","/admin/users",class:"dropdown-item")%></li>
+      </ul>
+    </div>
               
   <%=link_to "/admin/matters" do%>
         <button type="button" class="btn btn-sm">申請一覧</button>
@@ -66,15 +64,24 @@
 
 <%if current_user%>
 <%if current_user.admin%>
-  <div class="alert-box alert-by-student">
+<div class="alert-box alert-matter">
       <p class="alert-con">
-        生徒からのメッセージ:
+        申請が届きました
+      </p>
+      <button class="button_go_chat"><%=link_to("申請一覧へ","/admin/matters")%></button>
+      <button class="button_close">閉じる</button>
+</div>
+  <div class="alert-box alert-by-student">
+      <p class="alert-title" style="font-size:.8em">生徒からのメッセージ</p>
+      <p class="alert-con">
+        
       </p>
       <button class="button_go_chat"><%=link_to("チャット一覧へ","/admin/chats")%></button>
 <%else%>
     <div class="alert-box alert-by-admin">
+      <p class="alert-title" style="font-size:.8em">管理人からのメッセージ</p>
       <p class="alert-con">
-        管理人からのメッセージ
+        
       </p>
       <button class="button_go_chat"><%=link_to("チャットルームへ","/chats")%></button>
 <%end%>
@@ -97,8 +104,8 @@
     <%= yield %>
   </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </body>
 </html>

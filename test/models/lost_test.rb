@@ -1,7 +1,13 @@
 require 'test_helper'
 
 class LostTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "lost save" do
+    lost=Lost.new(
+      name:"黒い傘",
+      detail:"取っ手が錆びています",
+      category:"傘",
+      lesson_id:1
+    )
+    assert test.save,"保存に失敗だよ"
+  end
 end

@@ -24,7 +24,7 @@
 <%end%>
 </tbody>
 </table>
-
+<%=paginate @lessons%>
 <div class="other-btn">
     <%=link_to "/admin/lessons/new" do%>
       <button type="button" class="btn">新規作成</button>

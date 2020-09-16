@@ -2,7 +2,7 @@ class Admin::UsersController < Admin::Base
     #wrap_parameters :user, include: [:name, :password, :password_confirmation]
     
     def index
-        @users=User.all
+        @users=User.all.page(params[:page]).per(20)
     end
 
     def show

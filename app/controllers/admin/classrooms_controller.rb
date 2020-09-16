@@ -1,7 +1,7 @@
 class Admin::ClassroomsController < Admin::Base
     
     def index
-        @classrooms=Classroom.all.order(:id).reverse_order
+        @classrooms=Classroom.all.order(:id).reverse_order.page(params[:page]).per(10)
     end
 
     def show

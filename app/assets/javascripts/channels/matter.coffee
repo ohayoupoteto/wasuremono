@@ -9,7 +9,7 @@ App.matter = App.cable.subscriptions.create "MatterChannel",
 
   received: (data) ->
     $(".alert-con").text("申請が届きました")
-    $(".alert-by-student").show();
+    $(".alert-matter").show();
     
     
     # Called when there's incoming data on the websocket for this channel

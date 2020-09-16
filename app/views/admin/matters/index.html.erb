@@ -7,6 +7,7 @@
     <th>授業</th>
     <th>申請時刻</th>
     <th>メッセージ</th>
+    <th>解決</th>
   </tr>
 </thred>
 <tbody>
@@ -17,6 +18,13 @@
    <td><%= matter.lost.lesson.name %></td>
    <td><%=matter.created_at.strftime("%Y-%m-%d %H:%M")%></td>
    <td><%=matter.eve%></td>
+   <td>
+     <%if matter.is_solved%>
+       <span style="color:#0000ff">解決済み</span>
+     <%else%>
+       <span style="color:#ff0000">未解決</span>
+     <%end%>
+   </td>
    <td>
    <div class="other-btn">
       <%=link_to "/admin/chats/start/#{matter.user.id}", method: :post do%>
@@ -29,3 +37,4 @@
 <%end%>
 </tbody>
 </table>
+<%=paginate @matters%>

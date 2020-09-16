@@ -39,7 +39,7 @@ class MattersController < ApplicationController
     
     def q2
         @matter=Matter.find(params[:id])
-        @losts=Lost.where(lesson_id:params[:lesson_id],category:params[:category])
+        @losts=Lost.where(lesson_id:params[:lesson_id],category:params[:category]).page(params[:page]).per(30)
 
     end
 
