@@ -10,15 +10,22 @@ Rails.application.routes.draw do
   get "q3/:id/:lost_id" => "matters#q3"
   patch "q3_after/:id" => "matters#q3_after"
 
+  
+
   post "chats/start/:user_id" => "chats#start"
 
   namespace :admin do
     post "chats/start/:user_id" => "chats#start"
+    get "users/new_multi" => "users#new_multi" #生徒の一括追加
+    post "users/create_multi" => "users#create_multi"
+    get "users/download" => "users#download"
     resources :losts
     resources :chats
     resources :classrooms 
     resources :lessons
-    resources :users
+    resources :users do
+      collection {post :create_multi}
+    end
     resources :matters
   end
   resources :losts

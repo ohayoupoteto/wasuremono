@@ -1,6 +1,7 @@
 <h2>ユーザー編集</h2>
-<table class="table table-bordered">
+
 <%=form_for @user ,url:admin_user_path(@user) do |form|%>
+<table class="table table-bordered">
     <tr>
     <th>ユーザーID</th>
     <td><%=form.text_field :student_id%></td>
