@@ -338,8 +338,15 @@ header .btn {
 .table{
     margin-top:50px;
 }
-
-
+ /************************************
+** CSVのダウンロード画面
+************************************/
+.download{
+    text-align:center;
+    border:1px solid #eee;
+    padding:1em;
+    margin-top:30px;
+}
 /************************************
 ** チャットの吹き出し
 ************************************/
@@ -434,7 +441,14 @@ header .btn {
     font-weight: 900;
     font-size:1.25em;
     padding-right:4px;
-    /*animation: slide2 1.4s infinite;*/
+  }
+  .mark_csv_file:before{
+    font-family: "Font Awesome 5 Free"!important;
+    content: "\f15c";
+    color: #f8c678;
+    font-weight: 900;
+    padding-right:7px;
+    font-size:.9em;
   }
 /************************************
 ** アニメーション

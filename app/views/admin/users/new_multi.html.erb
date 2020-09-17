@@ -1,0 +1,19 @@
+<h2 class="mark_csv_file">一括追加</h2>
+
+  <p style="text-align:center; font-size:.9em ;margin-top:30px;">CSVファイルをアップロードしてユーザーを一括で追加することができます</p>
+<div class="download">
+<%=form_tag "/admin/users/create_multi",multipart: true do%>
+  <%= file_field_tag :file ,accept:"text/csv" %>
+  <div class="other-btn">
+    <%=submit_tag "追加する",class:"btn" ,style:"margin-top:30px;"%>
+  </div>
+<%end%>
+</div>
+<div style="margin-top:70px;">
+  <p style="text-align:center; font-size:.8em">以下のテンプレートをご利用ください</p>
+  <div class="other-btn">
+    <%=link_to "/admin/users/download" do%>
+      <button type="button" class="btn" style="background-color:rgba(153,204,255,.5); font-size:.8em;">テンプレートをダウンロードする</button>
+    <%end%>
+  </div>
+</div>

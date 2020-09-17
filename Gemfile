@@ -75,4 +75,6 @@ gem "aws-sdk-s3", require: false
 gem 'kaminari'
 gem 'kaminari-i18n'
 
+gem 'roo'
+
 gem "email_validator", "~> 1.6"

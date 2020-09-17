@@ -30,8 +30,12 @@
  </tbody>
  </table>
  <%=paginate @users%>
- <div class="other-btn">
+ <div class="other-btn" style="margin-bottom:20px;">
       <%=link_to "/admin/users/new" do%>
       <button type="button" class="btn">追加する</button>
       <%end%>
       </div>
+  <div class="other-btn">
+   <%=link_to "/admin/users/new_multi" do%>
+     <button type="button" class="btn">一括追加する</button>
+   <%end%>

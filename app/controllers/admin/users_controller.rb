@@ -1,6 +1,7 @@
 class Admin::UsersController < Admin::Base
-    #wrap_parameters :user, include: [:name, :password, :password_confirmation]
     
+  require "csv" #生徒一括追加用
+
     def index
         @users=User.all.page(params[:page]).per(20)
     end
@@ -8,11 +9,7 @@ class Admin::UsersController < Admin::Base
     def show
         @user=User.find(params[:id])
         @lessons=@user.lessons
-        #@a=TakeLesson.where(user_id:@user.id)
-        #@lessons=[]
-        #@a.each do |a|
-            #@lessons<<Lesson.find(a.lesson_id)
-        #end
+
     end
     def new
         @user=User.new
@@ -21,6 +18,9 @@ class Admin::UsersController < Admin::Base
         @lessons.each do |lesson|
             @lessons_array << lesson.name
         end
+    end
+
+    def new_multi
     end
 
     def create
@@ -41,6 +41,39 @@ class Admin::UsersController < Admin::Base
         end
 
     end
+
+    def create_multi
+        file=params[:file] #受け取ったCSVファイル
+        @students=[]
+        isSaveall=true;#全ての人を登録できたか
+        CSV.foreach(file.path, headers: true) do |row|
+            user=User.new(student_id: row[0], #なぜかrow["学籍番号"]で取得できないので止む無くインデックスで指定
+                 name: row["氏名"], 
+                 faculty: row["学部"], 
+                 grade: row["学年"].to_i, 
+                 email: row["メールアドレス"], 
+                 password: row["パスワード"], 
+                 password_confirmation: row["パスワード"], 
+                 admin: false)
+            unless user.save!
+                isSaveall=false
+            end
+        end
+        if isSaveall
+            flash[:notice]="ユーザーが登録されました。"
+        else
+            flash[:alert]="全てのユーザーを登録できませんでした。"
+        end
+
+        redirect_to("/admin/users")
+    end
+
+    def download #CSVファイルのダウンロード
+        filepath = Rails.root.join("app", "assets", "csvs" ,"wasuremono_template.csv")
+        stat = File::stat(filepath)
+        send_file(filepath, filename:'忘れ物_テンプレート.csv',type: "text_csv")
+    end
+
     def edit
         @user=User.find(params[:id])
         @lessons=Lesson.all
@@ -54,7 +87,9 @@ class Admin::UsersController < Admin::Base
         if @user.save
             @lesson_ids.each do |lesson_id|#その生徒がとっている授業と関連づける
                 lesson=Lesson.find(lesson_id.to_i)
-                @user.lessons << lesson
+                unless @user.lessons.include?(lesson)#授業を重複させない
+                  @user.lessons << lesson
+                end
             end
             flash[:notice]="生徒を編集できました"
             
@@ -69,7 +104,7 @@ class Admin::UsersController < Admin::Base
     def destroy
         @user=User.find(params[:id])
         if @user.destroy
-            flash[:notice]="生徒を削除できました"
+            flash[:notice]="生徒を削除しsました"
         else
             flash[:notice]="生徒を削除できませんでした"
         end
