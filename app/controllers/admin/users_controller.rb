@@ -44,7 +44,12 @@ class Admin::UsersController < Admin::Base
 
     def create_multi
         file=params[:file] #受け取ったCSVファイル
+<<<<<<< HEAD
         isSaveall=true; #全ての人を登録できたか
+=======
+        @students=[]
+        isSaveall=true;#全ての人を登録できたか
+>>>>>>> origin/master
         CSV.foreach(file.path, headers: true) do |row|
             user=User.new(student_id: row[0], #なぜかrow["学籍番号"]で取得できないので止む無くインデックスで指定
                  name: row["氏名"], 
@@ -56,8 +61,11 @@ class Admin::UsersController < Admin::Base
                  admin: false)
             unless user.save!
                 isSaveall=false
+<<<<<<< HEAD
                 flash[:alert]="ユーザーを登録できませんでした。"
                 render("layouts/error")
+=======
+>>>>>>> origin/master
             end
         end
         if isSaveall
