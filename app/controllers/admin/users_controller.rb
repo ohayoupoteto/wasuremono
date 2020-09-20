@@ -105,7 +105,7 @@ class Admin::UsersController < Admin::Base
     def destroy
         @user=User.find(params[:id])
         if @user.destroy
-            flash[:notice]="生徒を削除しsました"
+            flash[:notice]="生徒を削除しました"
         else
             flash[:notice]="生徒を削除できませんでした"
         end

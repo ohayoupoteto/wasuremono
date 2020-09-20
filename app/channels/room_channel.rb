@@ -13,6 +13,8 @@ class RoomChannel < ApplicationCable::Channel
     #今画面を開いているのが管理人か否か判断
     RoomChannel.broadcast_to true, message: data['message'], isAdmin: true, currentAdmin: true
     RoomChannel.broadcast_to false, message: data['message'], isAdmin: true, currentAdmin: false
+    @user=User.find(data['user_id'].to_i)
+    ChatMailer.send_mail(@user, data['message']).deliver_now
   end
 
   def speak_student(data)
@@ -21,6 +23,4 @@ class RoomChannel < ApplicationCable::Channel
     RoomChannel.broadcast_to true, message: data['message'], isAdmin: false, currentAdmin: true
     RoomChannel.broadcast_to false, message: data['message'], isAdmin: false, currentAdmin: false
   end
-
-
 end
