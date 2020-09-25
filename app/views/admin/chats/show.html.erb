@@ -22,11 +22,10 @@
     <%end%>
     <%end%>
 </div>   
-<h3>チャット送信</h3>
-<form>
-  <label>送りたい内容を入力してね</label><br>
-  <input type="text" data-behavior="room_speaker_admin">
-  <input id="user_id_admin" type="hidden" value= "<%=@user_id%>" value2= "<%=current_user.admin%>">
+<form id="send-form">
+  <input type="text" id="sentence" data-behavior="room_speaker_admin" placeholder="入力後にEnterを押してね" style="width:60%;">
+  <input id="user_id_admin" type="hidden" value= "<%=@user_id%>" value2= "<%=current_user.admin%>"><br>
+  <label>※メールでも同じ内容が送信されます</label>
 </form>
 <div class="other-btn">
 <button type="button" class="btn">

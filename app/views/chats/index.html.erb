@@ -21,9 +21,7 @@
     <%end%>
     <%end%>
 </div>   
-<h3>チャット送信</h3>
-<form>
-  <label>送りたい内容を入力してね</label><br>
-  <input type="text" data-behavior="room_speaker_student">
+<form id="send-form">
+  <input type="text" data-behavior="room_speaker_student" placeholder="入力後にEnterを押してね" style="width:60%;">
   <input id="user_id_student" type="hidden" value= "<%=current_user.id%>" value2= "<%=current_user.admin%>">
 </form>
