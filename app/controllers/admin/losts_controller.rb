@@ -10,7 +10,6 @@ class Admin::LostsController < Admin::Base
 
     def new
         @lost=Lost.new
-        
         @lessons=Lesson.all
         @lesson_array=[]#選択用の教室の配列を用意
         @lessons.each do |lesson|
