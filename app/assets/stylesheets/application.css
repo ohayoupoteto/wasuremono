@@ -585,4 +585,12 @@ header .btn {
     text-align:center;
     margin-bottom:50px;
   }
+  .top_movie{
+    text-align:center;
+    opacity:.7;
+    margin-bottom:60px;
+  }
+  .top_movie p{
+    font-size:1.1em;
+  }
   
